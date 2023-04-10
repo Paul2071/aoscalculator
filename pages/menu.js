@@ -15,9 +15,7 @@ function Menu({navigation}) {
         <Button 
         title='DiceRolling'
         onPress={()=> navigation.navigate("DiceRolling")} ></Button>
-        <Button 
-        title='console'
-        onPress = {console.log(navigation)} ></Button>
+        
      </View>
 
   )
