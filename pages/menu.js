@@ -1,6 +1,8 @@
 import React from 'react'
 import { Text, Button, View  } from 'react-native'
 
+import HeaderHamburger from '../components/headerHamburger'
+
 function Menu({navigation}) {
   return (
 
@@ -15,7 +17,8 @@ function Menu({navigation}) {
         <Button 
         title='DiceRolling'
         onPress={()=> navigation.navigate("DiceRolling")} ></Button>
-        
+
+               
      </View>
 
   )

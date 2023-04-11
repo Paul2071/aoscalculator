@@ -11,18 +11,19 @@ import DiceRolling from './pages/diceRolling';
 
 //component imports
 import HeaderHamburger from './components/headerHamburger';
+import MenuHamburger from './components/menuHamburger';
 
 const Stack = createNativeStackNavigator();
 
 
-export default function App() {
+export default function App({navigation}) {
   return (
     <NavigationContainer>
 
       <Stack.Navigator 
       screenOptions={{
         headerStyle: { backgroundColor:  "#c1121f" }, headerTintColor: "#fff", headerTitleAlign: "center",
-        headerRight: (props) => <HeaderHamburger {...props} />, 
+       
         
         
         }}  >
@@ -30,9 +31,10 @@ export default function App() {
         <Stack.Screen 
         name="menu" 
         component={Menu} 
-        options={{title: "Welcome ",  }}
+        options={{title: "Welcome "  }}
         
         />
+        
         <Stack.Screen 
         name="AvgDamage" 
         component={AvgDamage} 
@@ -63,3 +65,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
