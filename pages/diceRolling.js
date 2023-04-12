@@ -84,7 +84,21 @@ function DiceRolling() {
 
     </View>
 
+{/* view for dispalying columns of dice rolls */}
 
+    <View style={styles.actualDiceRollsPositioning}>
+       <Text style={[styles.textBox, styles.textStyling]}>Hit Rolls</Text>
+       <Text style={[styles.textBox, styles.textStyling]}>Wound Rolls</Text> 
+
+    </View>  
+
+{/*view for containing dice images and number of dice rolled */}    
+
+    <View style={styles.totalDiceRollsPositioning}></View>
+        <Image 
+          style={styles.resizingImages}
+          source={require('../assets/dice1.png')}
+        ></Image>
             
     </View>
   )
@@ -106,12 +120,12 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 10,
     height: 40,
-    marginTop: 10,
+    margin: 10,
     
   },
   inputBox: {
-    height: 40,
-    width: 40,
+    height: 35,
+    width: 35,
     margin: 12,
     borderWidth: 1,
     padding: 10,
@@ -124,12 +138,10 @@ const styles = StyleSheet.create({
     
     
   },
-  diceNumberPositioning: {
-    
+  diceNumberPositioning: {    
     backgroundColor: "lightblue",
     flexDirection: "row",
-    justifyContent: 'space-evenly'
-    
+    justifyContent: 'space-evenly'   
     
   },
   
@@ -148,6 +160,21 @@ const styles = StyleSheet.create({
 
 
   },
+
+  actualDiceRollsPositioning: {
+    backgroundColor: "orange",
+    flexDirection: "row",
+    justifyContent: 'space-evenly'
+  },
+
+  totalDiceRollsPositioning: {
+
+  },
+
+  resizingImages:{
+    height: 30,
+    width: 30,
+  }
 });
 
 export default DiceRolling
