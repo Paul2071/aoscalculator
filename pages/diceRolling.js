@@ -99,6 +99,26 @@ function DiceRolling() {
           style={styles.resizingImages}
           source={require('../assets/dice1.png')}
         ></Image>
+        <Image 
+          style={styles.resizingImages}
+          source={require('../assets/dice2.png')}
+        ></Image>
+        <Image 
+          style={styles.resizingImages}
+          source={require('../assets/dice3.png')}
+        ></Image>
+        <Image 
+          style={styles.resizingImages}
+          source={require('../assets/dice4.png')}
+        ></Image>
+        <Image 
+          style={styles.resizingImages}
+          source={require('../assets/dice5.png')}
+        ></Image>
+        <Image 
+          style={styles.resizingImages}
+          source={require('../assets/dice6.png')}
+        ></Image>
             
     </View>
   )
