@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, TextInput, StyleSheet, TouchableOpacity, Image } from 'react-native'
+import { Text, View, TextInput, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native'
 
 
 function DiceRolling() {
@@ -77,6 +77,7 @@ function DiceRolling() {
 
         <TouchableOpacity>
             <Image
+            style={styles.diceImageStyling}
             source={require("../assets/d6.png")}></Image>
         </TouchableOpacity>
 
@@ -93,33 +94,62 @@ function DiceRolling() {
     </View>  
 
 {/*view for containing dice images and number of dice rolled */}    
-
-    <View style={styles.totalDiceRollsPositioning}></View>
-        <Image 
-          style={styles.resizingImages}
-          source={require('../assets/dice1.png')}
-        ></Image>
-        <Image 
-          style={styles.resizingImages}
-          source={require('../assets/dice2.png')}
-        ></Image>
-        <Image 
-          style={styles.resizingImages}
-          source={require('../assets/dice3.png')}
-        ></Image>
-        <Image 
-          style={styles.resizingImages}
-          source={require('../assets/dice4.png')}
-        ></Image>
-        <Image 
-          style={styles.resizingImages}
-          source={require('../assets/dice5.png')}
-        ></Image>
-        <Image 
-          style={styles.resizingImages}
-          source={require('../assets/dice6.png')}
-        ></Image>
-            
+      <View style={styles.totalDiceRollsPositioning}>
+           <View >
+                      <Image 
+                        style={styles.resizingSingleDiceImages}
+                        source={require('../assets/dice1.png')}
+                      ></Image>
+                      
+                      <Image 
+                        style={styles.resizingSingleDiceImages}
+                        source={require('../assets/dice2.png')}
+                      ></Image>
+                      <Image 
+                        style={styles.resizingSingleDiceImages}
+                        source={require('../assets/dice3.png')}
+                      ></Image>
+                      <Image 
+                        style={styles.resizingSingleDiceImages}
+                        source={require('../assets/dice4.png')}
+                      ></Image>
+                      <Image 
+                        style={styles.resizingSingleDiceImages}
+                        source={require('../assets/dice5.png')}
+                      ></Image>
+                      <Image 
+                        style={styles.resizingSingleDiceImages}
+                        source={require('../assets/dice6.png')}
+                      ></Image>     
+              </View> 
+           <View >
+                      <Image 
+                        style={styles.resizingSingleDiceImages}
+                        source={require('../assets/dice1.png')}
+                      ></Image>
+                      
+                      <Image 
+                        style={styles.resizingSingleDiceImages}
+                        source={require('../assets/dice2.png')}
+                      ></Image>
+                      <Image 
+                        style={styles.resizingSingleDiceImages}
+                        source={require('../assets/dice3.png')}
+                      ></Image>
+                      <Image 
+                        style={styles.resizingSingleDiceImages}
+                        source={require('../assets/dice4.png')}
+                      ></Image>
+                      <Image 
+                        style={styles.resizingSingleDiceImages}
+                        source={require('../assets/dice5.png')}
+                      ></Image>
+                      <Image 
+                        style={styles.resizingSingleDiceImages}
+                        source={require('../assets/dice6.png')}
+                      ></Image>     
+              </View> 
+        </View>     
     </View>
   )
 }
@@ -188,12 +218,20 @@ const styles = StyleSheet.create({
   },
 
   totalDiceRollsPositioning: {
+    backgroundColor: "salmon",
+   
+    flexDirection: "row",
+
 
   },
 
-  resizingImages:{
+  resizingSingleDiceImages:{
     height: 30,
     width: 30,
+  },
+  diceImageStyling: {
+    height: 150,
+    width: 150,
   }
 });
 
