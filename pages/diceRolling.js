@@ -8,13 +8,15 @@ function DiceRolling() {
    //user input what value to wound the dice needs
   const [ toWoundValue, setToWoundValue ] = React.useState(0)
   //user input how many dice to roll
-  const [ numberOfDice, setNumberOfDice ] = React.useState()
+  const [ numberOfDice, setNumberOfDice ] = React.useState(0)
   //values generated from dice roll
   const [diceRoll, setDiceRoll ] = React.useState(0)
   //values that hit, based on user input to hit and values generated from dice roll
   const [ totalHit, setTotalHit] = React.useState(0)
    //values that hit, based on user input to wound and values generated from dice roll
   const [ totalWound, setTotalWound] = React.useState(0)
+  //stored count rolls
+  const [ countedDiceRolls, setCountedDiceRolls] = React.useState({1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0})
 
 
 //repeat GenerateRandomNumberD6 a number of times equal to numberOfDice state and store in a variable
@@ -22,69 +24,91 @@ function DiceRolling() {
 
   const diceRollsArray = []
  
-  function RollDiceUSerInputNumberOfTimes () {      
+  function rollDiceUSerInputNumberOfTimes () {      
     
     for (let i = 0; i < numberOfDice; i++) {
       const  singleDiceRoll = (Math.floor(Math.random() * 6 + 1));
       diceRollsArray.push(singleDiceRoll);   
       
     }
-    //console.log(diceRollsArray)
-    FilterDiceRolls() 
-    return 
+   
+    const calculateHowManyHit = diceRollsArray.filter(checkToHitOrWound)
+
+      console.log(toHitValue )
+      console.log(diceRollsArray  )
+      console.log(calculateHowManyHit  )
+      console.log(calculateHowManyHit.length  )
+      setTotalHit(calculateHowManyHit.length)
+      
+    }
+    
+ 
+    
+    function checkToHitOrWound (successfulHitsWounds) {
+      
+      return successfulHitsWounds >= toHitValue
   }
 
 
-    function FilterDiceRolls () {
 
-      let countDiceRolls = {
-        ones: 0,
-        twos: 0,
-        threes: 0,
-        fours: 0,
-        fives: 0,
-        sixes: 0,
-      }
+
+
+
+    // function filterDiceRolls () {
+
+    //   let countDiceRolls = {
+    //     1: 0,
+    //     2: 0,
+    //     3: 0,
+    //     4: 0,
+    //     5: 0,
+    //     6: 0,
+    //   }
       
       
-      for (let j = 0; j < diceRollsArray.length; j++) {
+    //   for (let j = 0; j < diceRollsArray.length; j++) {
 
 
-        if (diceRollsArray[j] === 1) {
-          countDiceRolls.ones++
-        }  else if (diceRollsArray[j] === 2) {
-            countDiceRolls.twos++
+    //     if (diceRollsArray[j] === 1) {
+    //       countDiceRolls.ones++
+    //     }  else if (diceRollsArray[j] === 2) {
+    //         countDiceRolls.twos++
           
-        } 
-          else if (diceRollsArray[j] === 3) {
-            countDiceRolls.threes++
+    //     } 
+    //       else if (diceRollsArray[j] === 3) {
+    //         countDiceRolls.threes++
           
-        } 
-          else if (diceRollsArray[j] === 4) {
-            countDiceRolls.fours++
+    //     } 
+    //       else if (diceRollsArray[j] === 4) {
+    //         countDiceRolls.fours++
           
-        } 
-          else if (diceRollsArray[j] === 5) {
-            countDiceRolls.fives++
+    //     } 
+    //       else if (diceRollsArray[j] === 5) {
+    //         countDiceRolls.fives++
           
-        } 
-          else if (diceRollsArray[j] === 6) {
-            countDiceRolls.sixes++
+    //     } 
+    //       else if (diceRollsArray[j] === 6) {
+    //         countDiceRolls.sixes++
           
-        } 
+    //     } 
+        
+    //   }
+      
+      
+    //   console.log(diceRollsArray )
+      // console.log(countDiceRolls.ones)
+      // console.log(countDiceRolls.twos )
+      // console.log(countDiceRolls.threes )
+      // console.log(countDiceRolls.fives )
+      // console.log(countDiceRolls.fours )
+      // console.log(countDiceRolls.sixes )
+      // console.log(countDiceRolls)
+      
+      // setCountedDiceRolls (countDiceRolls)
+      
+   // }
 
-
-      }
-
-      console.log(diceRollsArray )
-      console.log(countDiceRolls.ones)
-      console.log(countDiceRolls.twos )
-      console.log(countDiceRolls.threes )
-      console.log(countDiceRolls.fours )
-      console.log(countDiceRolls.fives )
-      console.log(countDiceRolls.sixes )
-      console.log(countDiceRolls)
-    }
+   
 
 
  
@@ -92,10 +116,12 @@ function DiceRolling() {
     //main view
     <View style={styles.mainContainer}>
    
+  
         {/*view for to hit and to wound values */}
         <View style={styles.toHitPositioning}>
 
           <Text style={[styles.textBox, styles.textStyling] }>To Hit</Text>
+
           <TextInput
               textAlign={'center'}
               style={styles.inputBox}
@@ -104,7 +130,9 @@ function DiceRolling() {
               keyboardType="numeric"
               placeholder="0">
           </TextInput>
+
           <Text style={[styles.textBox, styles.textStyling] }>To Wound</Text>
+         
           <TextInput
               textAlign={'center'}
               style={styles.inputBox}
@@ -119,6 +147,7 @@ function DiceRolling() {
         <View style={styles.diceNumberPositioning}>
 
             <Text style={[styles.textBox, styles.textStyling] }>How many Dice?</Text>
+
             <TextInput 
                 textAlign={'center'}
                 style={styles.inputBox}
@@ -133,38 +162,44 @@ function DiceRolling() {
         <View style={styles.totalHitPositioning}>
 
           <Text style={[styles.textBox, styles.textStyling] }>Total Hit</Text>
-          <TextInput 
-              textAlign={'center'}
-              style={styles.inputBox}
-              value={totalHit}
-              onChangeText={setTotalHit}
-              keyboardType="numeric"
-              placeholder="0">
-          </TextInput>
+
+          <Text style={styles.totalHitWoundBox}>
+              {totalHit}
+          </Text>
+
           <Text style={[styles.textBox, styles.textStyling] }>Total Wound</Text>
-          <TextInput 
-              textAlign={'center'}
-              style={styles.inputBox}
-              value={totalWound}
-              onChangeText={setTotalWound}
-              keyboardType="numeric"
-              placeholder="0">
-         </TextInput>
+
+          <Text style={styles.totalHitWoundBox}>
+              {totalWound}
+         </Text>
 
         </View>
 
 {/*view for dice image and text */}
 
     <View style={styles.diceImagePositioning}>
+    <View>
 
         <TouchableOpacity
-        onPress={()=> RollDiceUSerInputNumberOfTimes() }>
+        onPress={()=> rollDiceUSerInputNumberOfTimes() }>
             <Image
             style={styles.diceImageStyling}
             source={require("../assets/d6.png")}></Image>
         </TouchableOpacity>
 
-        <Text style={styles.textStyling}>Tap to roll</Text>
+        <Text style={styles.textStyling}>Tap to roll dice</Text>
+        </View>
+    <View>
+
+        <TouchableOpacity
+        onPress={()=> calculateHowManyFilteredRollsHit() }>
+            <Image
+            style={styles.diceImageStyling}
+            source={require("../assets/d6.png")}></Image>
+        </TouchableOpacity>
+
+        <Text style={styles.textStyling}>Tap to calculate</Text>
+        </View>
 
     </View>
 
@@ -348,6 +383,15 @@ const styles = StyleSheet.create({
     margin: 10,
     
   },
+  totalHitWoundBox: {
+    height: 40,
+    width: 40,
+    margin: 10,
+    borderWidth: 1,
+    borderRadius: 5,
+    padding: 10,
+    textAlign: "center"
+  },
   inputBox: {
     height: 35,
     width: 35,
@@ -389,8 +433,9 @@ const styles = StyleSheet.create({
   diceImagePositioning: {
 
     backgroundColor: "pink",
-    flexDirection: "column",
-    alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "space-evenly"
+
 
 
   },
