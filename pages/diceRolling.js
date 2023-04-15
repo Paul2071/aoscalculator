@@ -20,6 +20,7 @@ function DiceRolling() {
 
           <Text style={[styles.textBox, styles.textStyling] }>To Hit</Text>
           <TextInput
+              textAlign={'center'}
               style={styles.inputBox}
               value={toHitValue}
               onChangeText={setToHitValue}
@@ -28,6 +29,7 @@ function DiceRolling() {
           </TextInput>
           <Text style={[styles.textBox, styles.textStyling] }>To Wound</Text>
           <TextInput
+              textAlign={'center'}
               style={styles.inputBox}
               value={toWoundValue}
               onChangeText={setToWoundValue}
@@ -41,6 +43,7 @@ function DiceRolling() {
 
             <Text style={[styles.textBox, styles.textStyling] }>How many Dice?</Text>
             <TextInput 
+                textAlign={'center'}
                 style={styles.inputBox}
                 value={numberOfDice}
                 onChangeText={setNumberOfDice}
@@ -54,6 +57,7 @@ function DiceRolling() {
 
           <Text style={[styles.textBox, styles.textStyling] }>Total Hit</Text>
           <TextInput 
+              textAlign={'center'}
               style={styles.inputBox}
               value={totalHit}
               onChangeText={setTotalHit}
@@ -62,6 +66,7 @@ function DiceRolling() {
           </TextInput>
           <Text style={[styles.textBox, styles.textStyling] }>Total Wound</Text>
           <TextInput 
+              textAlign={'center'}
               style={styles.inputBox}
               value={totalWound}
               onChangeText={setTotalWound}
@@ -122,6 +127,53 @@ function DiceRolling() {
                         source={require('../assets/dice6.png')}
                       ></Image>     
               </View> 
+
+              <View>
+                  <TextInput 
+                  textAlign={'center'}
+              style={styles.inputBoxActual}
+              value={totalWound}
+              onChangeText={setTotalWound}
+              keyboardType="numeric"
+              placeholder="0"></TextInput>
+                  <TextInput 
+                  textAlign={'center'}
+              style={styles.inputBoxActual}
+              value={totalWound}
+              onChangeText={setTotalWound}
+              keyboardType="numeric"
+              placeholder="0"></TextInput>
+                  <TextInput 
+                  textAlign={'center'}
+              style={styles.inputBoxActual}
+              value={totalWound}
+              onChangeText={setTotalWound}
+              keyboardType="numeric"
+              placeholder="0"></TextInput>
+                  <TextInput 
+                  textAlign={'center'}
+              style={styles.inputBoxActual}
+              value={totalWound}
+              onChangeText={setTotalWound}
+              keyboardType="numeric"
+              placeholder="0"></TextInput>
+                  <TextInput 
+                  textAlign={'center'}
+              style={styles.inputBoxActual}
+              value={totalWound}
+              onChangeText={setTotalWound}
+              keyboardType="numeric"
+              placeholder="0"></TextInput>
+                  <TextInput 
+                  textAlign={'center'}
+              style={styles.inputBoxActual}
+              value={totalWound}
+              onChangeText={setTotalWound}
+              keyboardType="numeric"
+              placeholder="0"></TextInput>
+
+              </View>
+
            <View >
                       <Image 
                         style={styles.resizingSingleDiceImages}
@@ -149,6 +201,51 @@ function DiceRolling() {
                         source={require('../assets/dice6.png')}
                       ></Image>     
               </View> 
+              <View>
+                  <TextInput 
+                  textAlign={'center'}
+              style={styles.inputBoxActual}
+              value={totalWound}
+              onChangeText={setTotalWound}
+              keyboardType="numeric"
+              placeholder="0"></TextInput>
+                  <TextInput 
+                  textAlign={'center'}
+              style={styles.inputBoxActual}
+              value={totalWound}
+              onChangeText={setTotalWound}
+              keyboardType="numeric"
+              placeholder="0"></TextInput>
+                  <TextInput 
+                  textAlign={'center'}
+              style={styles.inputBoxActual}
+              value={totalWound}
+              onChangeText={setTotalWound}
+              keyboardType="numeric"
+              placeholder="0"></TextInput>
+                  <TextInput 
+                  textAlign={'center'}
+              style={styles.inputBoxActual}
+              value={totalWound}
+              onChangeText={setTotalWound}
+              keyboardType="numeric"
+              placeholder="0"></TextInput>
+                  <TextInput 
+                  textAlign={'center'}
+              style={styles.inputBoxActual}
+              value={totalWound}
+              onChangeText={setTotalWound}
+              keyboardType="numeric"
+              placeholder="0"></TextInput>
+                  <TextInput 
+                  textAlign={'center'}
+              style={styles.inputBoxActual}
+              value={totalWound}
+              onChangeText={setTotalWound}
+              keyboardType="numeric"
+              placeholder="0"></TextInput>
+
+              </View>
         </View>     
     </View>
   )
@@ -178,6 +275,15 @@ const styles = StyleSheet.create({
     width: 35,
     margin: 12,
     borderWidth: 1,
+    borderRadius: 5,
+    padding: 10,
+  },
+  inputBoxActual: {
+    height: 30,
+    width: 30,
+    borderRadius: 5,
+    borderWidth: 1,
+    fontSize: 10,
     padding: 10,
   },
   
@@ -219,8 +325,9 @@ const styles = StyleSheet.create({
 
   totalDiceRollsPositioning: {
     backgroundColor: "salmon",
-   
+    flex: 1,
     flexDirection: "row",
+    justifyContent: "space-evenly"
 
 
   },
