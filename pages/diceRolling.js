@@ -22,21 +22,76 @@ function DiceRolling() {
 
   const diceRollsArray = []
  
-  function RollDiceUSerInputNumberOfTimes () {
-      
+  function RollDiceUSerInputNumberOfTimes () {      
     
     for (let i = 0; i < numberOfDice; i++) {
       const  singleDiceRoll = (Math.floor(Math.random() * 6 + 1));
-      diceRollsArray.push(singleDiceRoll);    
+      diceRollsArray.push(singleDiceRoll);   
       
+    }
+    //console.log(diceRollsArray)
+    FilterDiceRolls() 
+    return 
   }
-  console.log(diceRollsArray)
-  }
+
+
+    function FilterDiceRolls () {
+
+      let countDiceRolls = {
+        ones: 0,
+        twos: 0,
+        threes: 0,
+        fours: 0,
+        fives: 0,
+        sixes: 0,
+      }
+      
+      
+      for (let j = 0; j < diceRollsArray.length; j++) {
+
+
+        if (diceRollsArray[j] === 1) {
+          countDiceRolls.ones++
+        }  else if (diceRollsArray[j] === 2) {
+            countDiceRolls.twos++
+          
+        } 
+          else if (diceRollsArray[j] === 3) {
+            countDiceRolls.threes++
+          
+        } 
+          else if (diceRollsArray[j] === 4) {
+            countDiceRolls.fours++
+          
+        } 
+          else if (diceRollsArray[j] === 5) {
+            countDiceRolls.fives++
+          
+        } 
+          else if (diceRollsArray[j] === 6) {
+            countDiceRolls.sixes++
+          
+        } 
+
+
+      }
+
+      console.log(diceRollsArray )
+      console.log(countDiceRolls.ones)
+      console.log(countDiceRolls.twos )
+      console.log(countDiceRolls.threes )
+      console.log(countDiceRolls.fours )
+      console.log(countDiceRolls.fives )
+      console.log(countDiceRolls.sixes )
+      console.log(countDiceRolls)
+    }
+
 
  
   return (
     //main view
     <View style={styles.mainContainer}>
+   
         {/*view for to hit and to wound values */}
         <View style={styles.toHitPositioning}>
 
