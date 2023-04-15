@@ -3,15 +3,37 @@ import { Text, View, TextInput, StyleSheet, TouchableOpacity, Image, ScrollView 
 
 
 function DiceRolling() {
-  
+  //user input what value to hit the dice needs
   const [ toHitValue, setToHitValue ] = React.useState(0)
+   //user input what value to wound the dice needs
   const [ toWoundValue, setToWoundValue ] = React.useState(0)
-  const [ numberOfDice, setNumberOfDice ] = React.useState(0)
+  //user input how many dice to roll
+  const [ numberOfDice, setNumberOfDice ] = React.useState()
+  //values generated from dice roll
+  const [diceRoll, setDiceRoll ] = React.useState(0)
+  //values that hit, based on user input to hit and values generated from dice roll
   const [ totalHit, setTotalHit] = React.useState(0)
+   //values that hit, based on user input to wound and values generated from dice roll
   const [ totalWound, setTotalWound] = React.useState(0)
 
 
+//repeat GenerateRandomNumberD6 a number of times equal to numberOfDice state and store in a variable
 
+
+  const diceRollsArray = []
+ 
+  function RollDiceUSerInputNumberOfTimes () {
+      
+    
+    for (let i = 0; i < numberOfDice; i++) {
+      const  singleDiceRoll = (Math.floor(Math.random() * 6 + 1));
+      diceRollsArray.push(singleDiceRoll);    
+      
+  }
+  console.log(diceRollsArray)
+  }
+
+ 
   return (
     //main view
     <View style={styles.mainContainer}>
@@ -80,7 +102,8 @@ function DiceRolling() {
 
     <View style={styles.diceImagePositioning}>
 
-        <TouchableOpacity>
+        <TouchableOpacity
+        onPress={()=> RollDiceUSerInputNumberOfTimes() }>
             <Image
             style={styles.diceImageStyling}
             source={require("../assets/d6.png")}></Image>
