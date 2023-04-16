@@ -9,14 +9,17 @@ function DiceRolling() {
   const [ toWoundValue, setToWoundValue ] = React.useState(0)
   //user input how many dice to roll
   const [ numberOfDice, setNumberOfDice ] = React.useState(0)
-  //values generated from dice roll that hit - above or equal to to hit value
-  //const [diceRollHits, setDiceRollHits ] = React.useState(0)
   //values that hit, based on user input to hit and values generated from dice roll
   const [ totalHit, setTotalHit] = React.useState(0)
-   //values that hit, based on user input to wound and values generated from dice roll
+  //values that hit, based on user input to wound and values generated from dice roll
   const [ totalWound, setTotalWound] = React.useState(0)
   //how many have hit from the rolled dice
   const [ successfulHit, setSuccessfulHit] = React.useState(0)
+  
+  //values generated from dice roll that hit
+  const [diceRollHits, setDiceRollHits ] = React.useState({1:0, 2:0, 3:0, 4:0, 5:0, 6:0})
+  //values generated from dice rolls to wound
+  const [ diceRollWounds, setDiceRollWounds] = React.useState(0)
 
 
 
@@ -28,16 +31,51 @@ function DiceRolling() {
    
     for (let i = 0; i < numberOfDice; i++) {
       const  singleDiceRoll = (Math.floor(Math.random() * 6 + 1));
-      diceRollsArray.push(singleDiceRoll);   
+      diceRollsArray.push(singleDiceRoll);  
       
     }
-   
+    
+    console.log(diceRollsArray)
     const calculateHowManyHit = diceRollsArray.filter(checkToHit)
-
-      console.log(toHitValue )
-      console.log(diceRollsArray  )
-      console.log(calculateHowManyHit  )
-      console.log(calculateHowManyHit.length  )
+    
+        let countDiceRolls = {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+        6: 0,
+      }
+      
+      for (let j = 0; j < diceRollsArray.length; j++) {
+        
+        
+        if (diceRollsArray[j] === 1) {
+          countDiceRolls[1]++
+        }  else if (diceRollsArray[j] === 2) {
+          countDiceRolls[2]++
+          
+        } 
+        else if (diceRollsArray[j] === 3) {
+          countDiceRolls[3]++
+          
+        } 
+        else if (diceRollsArray[j] === 4) {
+          countDiceRolls[4]++
+          
+        } 
+        else if (diceRollsArray[j] === 5) {
+          countDiceRolls[5]++
+          
+        } 
+        else if (diceRollsArray[j] === 6) {
+          countDiceRolls[6]++
+          
+        } 
+        
+      }
+      //console.log(countDiceRolls)
+      setDiceRollHits(countDiceRolls)
       setTotalHit(calculateHowManyHit.length)
       setSuccessfulHit(calculateHowManyHit)
       
@@ -67,8 +105,8 @@ function DiceRolling() {
     }
   
     const calculateHowManyWound = diceRollForWounds.filter(checkToWound)  
-    console.log(diceRollForWounds)
-    console.log(calculateHowManyWound)
+    //console.log(diceRollForWounds)
+    //console.log(calculateHowManyWound)
     setTotalWound(calculateHowManyWound.length)
   }
 
@@ -76,6 +114,9 @@ function DiceRolling() {
   setToHitValue(0)
   setToWoundValue(0)
   setNumberOfDice(0)
+  setTotalHit(0)
+  setTotalWound(0)
+  setDiceRollHits({1:0, 2:0, 3:0, 4:0, 5:0, 6:0})
  }
  
   return (
@@ -223,16 +264,16 @@ function DiceRolling() {
               </View> 
 
               <View>
-                  <Text style={styles.calculatedHitWoundValues}></Text>
+                  <Text style={styles.calculatedHitWoundValues}>{diceRollHits[1]}</Text>
 
-                  <Text style={styles.calculatedHitWoundValues}></Text>
-                  <Text style={styles.calculatedHitWoundValues}></Text>
+                  <Text style={styles.calculatedHitWoundValues}>{diceRollHits[2]}</Text>
+                  <Text style={styles.calculatedHitWoundValues}>{diceRollHits[3]}</Text>
 
-                  <Text style={styles.calculatedHitWoundValues}></Text>
+                  <Text style={styles.calculatedHitWoundValues}>{diceRollHits[4]}</Text>
 
-                  <Text style={styles.calculatedHitWoundValues}></Text>
+                  <Text style={styles.calculatedHitWoundValues}>{diceRollHits[5]}</Text>
 
-                  <Text style={styles.calculatedHitWoundValues}></Text>
+                  <Text style={styles.calculatedHitWoundValues}>{diceRollHits[6]}</Text>
 
 
               </View>
@@ -327,10 +368,12 @@ const styles = StyleSheet.create({
   calculatedHitWoundValues: {
     height: 30,
     width: 30,
-    borderRadius: 20,
+    borderRadius: 15,
     borderWidth: 1,
     fontSize: 10,
-    padding: 10,
+    padding: 8,
+    textAlign: "center",
+    fontWeight: "bold"
   },
   
 //posittioning of the view containing to hit and to wound titles  
