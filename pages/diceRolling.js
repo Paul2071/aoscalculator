@@ -19,7 +19,7 @@ function DiceRolling() {
   //values generated from dice roll that hit
   const [diceRollHits, setDiceRollHits ] = React.useState({1:0, 2:0, 3:0, 4:0, 5:0, 6:0})
   //values generated from dice rolls to wound
-  const [ diceRollWounds, setDiceRollWounds] = React.useState(0)
+  const [ diceRollWounds, setDiceRollWounds] = React.useState({1:0, 2:0, 3:0, 4:0, 5:0, 6:0})
 
 
 
@@ -35,7 +35,7 @@ function DiceRolling() {
       
     }
     
-    console.log(diceRollsArray)
+    //console.log(diceRollsArray)
     const calculateHowManyHit = diceRollsArray.filter(checkToHit)
     
         let countDiceRolls = {
@@ -104,9 +104,47 @@ function DiceRolling() {
       diceRollForWounds.push(singleDiceRoll)
     }
   
-    const calculateHowManyWound = diceRollForWounds.filter(checkToWound)  
-    //console.log(diceRollForWounds)
-    //console.log(calculateHowManyWound)
+    const calculateHowManyWound = diceRollForWounds.filter(checkToWound) 
+    
+    let countDiceRollsWounds = {
+      1:0,
+      2:0,
+      3:0,
+      4:0,
+      5:0,
+      6:0,
+
+    }
+
+      for ( w = 0; w < diceRollForWounds.length; w++) {
+        if (diceRollForWounds[w] === 1) {
+          countDiceRollsWounds[1]++
+        }  else if (diceRollForWounds[w] === 2) {
+          countDiceRollsWounds[2]++
+          
+        } 
+          else if (diceRollForWounds[w] === 3) {
+          countDiceRollsWounds[3]++
+          
+        } 
+          else if (diceRollForWounds[w] === 4) {
+          countDiceRollsWounds[4]++
+          
+        } 
+          else if (diceRollForWounds[w] === 5) {
+          countDiceRollsWounds[5]++
+          
+        } 
+          else if (diceRollForWounds[w] === 6) {
+          countDiceRollsWounds[6]++
+          
+        } 
+        
+      }
+
+    console.log(diceRollForWounds)
+    console.log(calculateHowManyWound)
+    setDiceRollWounds(countDiceRollsWounds)
     setTotalWound(calculateHowManyWound.length)
   }
 
@@ -306,12 +344,12 @@ function DiceRolling() {
                       ></Image>     
               </View> 
               <View>
-              <Text style={styles.calculatedHitWoundValues}></Text>
-              <Text style={styles.calculatedHitWoundValues}></Text>
-              <Text style={styles.calculatedHitWoundValues}></Text>
-              <Text style={styles.calculatedHitWoundValues}></Text>
-              <Text style={styles.calculatedHitWoundValues}></Text>
-              <Text style={styles.calculatedHitWoundValues}></Text>
+              <Text style={styles.calculatedHitWoundValues}>{diceRollWounds[1]}</Text>
+              <Text style={styles.calculatedHitWoundValues}>{diceRollWounds[2]}</Text>
+              <Text style={styles.calculatedHitWoundValues}>{diceRollWounds[3]}</Text>
+              <Text style={styles.calculatedHitWoundValues}>{diceRollWounds[4]}</Text>
+              <Text style={styles.calculatedHitWoundValues}>{diceRollWounds[5]}</Text>
+              <Text style={styles.calculatedHitWoundValues}>{diceRollWounds[6]}</Text>
 
               </View>
         </View>     
