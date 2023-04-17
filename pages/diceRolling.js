@@ -231,7 +231,7 @@ function DiceRolling() {
               onPress={()=> rollDiceUSerInputNumberOfTimes() }>
                   <Image
                   style={styles.diceImageStyling}
-                  source={require("../assets/d6.png")}></Image>
+                  source={require("../assets/d6blackred.png")}></Image>
               </TouchableOpacity>
 
               <Text style={[styles.textStyling, styles.textStylingPress]}>Press to hit</Text>
