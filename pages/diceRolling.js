@@ -155,6 +155,7 @@ function DiceRolling() {
   setTotalHit(0)
   setTotalWound(0)
   setDiceRollHits({1:0, 2:0, 3:0, 4:0, 5:0, 6:0})
+  setDiceRollWounds({1:0, 2:0, 3:0, 4:0, 5:0, 6:0})
  }
  
   return (
@@ -233,7 +234,7 @@ function DiceRolling() {
                   source={require("../assets/d6.png")}></Image>
               </TouchableOpacity>
 
-              <Text style={styles.textStyling}>Press to hit</Text>
+              <Text style={[styles.textStyling, styles.textStylingPress]}>Press to hit</Text>
         </View>
 
         <View>
@@ -245,10 +246,10 @@ function DiceRolling() {
                   source={require("../assets/d6.png")}></Image>
               </TouchableOpacity>
 
-              <Text style={styles.textStyling}>Press to wound</Text>
+              <Text style={[styles.textStyling, styles.textStylingPress]}>Press to wound</Text>
               
         </View>
-        <View>
+        <View style={styles.resetIconPositioning}>
 
               <TouchableOpacity
               onPress={()=> resetUserInput() }>
@@ -257,7 +258,7 @@ function DiceRolling() {
                   source={require("../assets/reseticon.png")}></Image>
               </TouchableOpacity>
 
-              <Text style={styles.textStyling}>Reset Values</Text>
+              <Text style={[styles.textStyling, styles.textStylingPress]}>Reset </Text>
 
         </View>
 
@@ -363,12 +364,17 @@ const styles = StyleSheet.create({
 //view that contains all of screen  
   mainContainer: {
     flex: 1,
+    //backgroundColor: "#003049",
     
   },
 //font styling on whole page  
   textStyling: {
     fontWeight: "bold",
     fontSize: 15,
+  },
+  //extra style to change colour of text near press
+  textStylingPress: {
+      color: "#fdf0d5",
   },
 //text comps that contain navigational cues/titles "to hit". "total hit" 
   textBox: {
@@ -416,7 +422,7 @@ const styles = StyleSheet.create({
   
 //posittioning of the view containing to hit and to wound titles  
   toHitPositioning: {
-    backgroundColor: "red",
+    backgroundColor: "#669bbc",
     flexDirection: "row",
     justifyContent: 'space-evenly'
     
@@ -425,7 +431,7 @@ const styles = StyleSheet.create({
 
   //positioning of the view containing how many dice title
   diceNumberPositioning: {    
-    backgroundColor: "lightblue",
+    backgroundColor: "#669bbc",
     flexDirection: "row",
     justifyContent: 'space-evenly'   
     
@@ -433,7 +439,7 @@ const styles = StyleSheet.create({
   
   //positioning of the total hit and total wound titles
   totalHitPositioning: {
-    backgroundColor: "grey",
+    backgroundColor: "#669bbc",
     flexDirection: "row",
     justifyContent: 'space-evenly'
     
@@ -441,27 +447,32 @@ const styles = StyleSheet.create({
 
   //positioning of dice images to roll to hit and to wound
   diceImagePositioning: {
-
-    backgroundColor: "pink",
+    backgroundColor: "#c1121f",    
     flexDirection: "row",
-    justifyContent: "space-evenly"
+    justifyContent: "space-evenly",
+    
   },
-  //reset icon positioning
+  //reset icon styling
   resetIconStyling: {
       height: 40,
       width: 40,
+      
+  },
+//reset icon and text positioning
+  resetIconPositioning: {
+      marginTop: 110,
   },
 
    //positioning of hit rolls and wound rolls 
   actualDiceRollsPositioning: {
-    backgroundColor: "orange",
+    backgroundColor: "#669bbc",
     flexDirection: "row",
     justifyContent: 'space-evenly'
   },
 
   //view containing d6 images and actual hit rolls
   totalDiceRollsPositioning: {
-    backgroundColor: "salmon",
+    backgroundColor: "#669bbc",
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-evenly"
