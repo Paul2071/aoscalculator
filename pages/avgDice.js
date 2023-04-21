@@ -6,6 +6,15 @@ function AvgDice() {
 
 const [ howManyDice, setHowManyDice ] = React.useState(0)
 
+let averageOneNumber = howManyDice / 6
+
+let onePlus = howManyDice 
+let twoPlus = Math.round(howManyDice - averageOneNumber) 
+let threePlus = Math.round(howManyDice - averageOneNumber - averageOneNumber) 
+let fourPlus = Math.round( howManyDice - averageOneNumber - averageOneNumber - averageOneNumber)
+let fivePlus = Math.round( howManyDice - averageOneNumber - averageOneNumber - averageOneNumber - averageOneNumber) 
+let sixPlus = Math.round (howManyDice - averageOneNumber - averageOneNumber - averageOneNumber - averageOneNumber - averageOneNumber)
+
   return (
     <View style={styles.mainContainer}>
         <View style={styles.titlesAndInputContainer}>
@@ -18,15 +27,16 @@ const [ howManyDice, setHowManyDice ] = React.useState(0)
             placeholder='0'>
 
             </TextInput>
-            <TouchableOpacity
-            onPress={() => console.log(howManyDice)}>
-                <Image 
-                style={styles.imageResizing}
-                source={require('../assets/d6blackred.png')}>
+          
+            <Text > {howManyDice} dice are rolled. The middle column is the expected amount of times to see a dice roll .</Text>
+            <Text > The right column is how many of the dice rolls are equal to or above the dice value in the left column. </Text>
+            <Text > For example, if {howManyDice} dice are rolled, on average {fourPlus} are equal to or above 4 </Text>
+        </View>
 
-                </Image>
-            </TouchableOpacity>
-            <Text style={[styles.textBox, styles.textStyling] }>Press dice</Text>
+        <View>
+
+
+
         </View>
 
         <View style={styles.diceAndAveragesContainer}>
@@ -59,22 +69,22 @@ const [ howManyDice, setHowManyDice ] = React.useState(0)
                       </View>
 
                       <View>
-                        <Text style={styles.diceAveragesOutput}>1</Text>
-                        <Text style={styles.diceAveragesOutput}>1</Text>
-                        <Text style={styles.diceAveragesOutput}>1</Text>
-                        <Text style={styles.diceAveragesOutput}>1</Text>
-                        <Text style={styles.diceAveragesOutput}>1</Text>
-                        <Text style={styles.diceAveragesOutput}>1</Text>
+                        <Text style={styles.diceAveragesOutput}>{howManyDice / 6}</Text>
+                        <Text style={styles.diceAveragesOutput}>{howManyDice / 6}</Text>
+                        <Text style={styles.diceAveragesOutput}>{howManyDice / 6}</Text>
+                        <Text style={styles.diceAveragesOutput}>{howManyDice / 6}</Text>
+                        <Text style={styles.diceAveragesOutput}>{howManyDice / 6}</Text>
+                        <Text style={styles.diceAveragesOutput}>{howManyDice / 6}</Text>
                         
                       </View>  
 
                       <View>
-                        <Text style={styles.diceAveragesOutput}>1</Text>
-                        <Text style={styles.diceAveragesOutput}>1</Text>
-                        <Text style={styles.diceAveragesOutput}>1</Text>
-                        <Text style={styles.diceAveragesOutput}>1</Text>
-                        <Text style={styles.diceAveragesOutput}>1</Text>
-                        <Text style={styles.diceAveragesOutput}>1</Text>
+                        <Text style={styles.diceAveragesOutput}>{onePlus}</Text>
+                        <Text style={styles.diceAveragesOutput}>{twoPlus}</Text>
+                        <Text style={styles.diceAveragesOutput}>{threePlus}</Text>
+                        <Text style={styles.diceAveragesOutput}>{fourPlus} </Text>
+                        <Text style={styles.diceAveragesOutput}>{fivePlus} </Text>
+                        <Text style={styles.diceAveragesOutput}>{sixPlus}</Text>
                        
                       </View>
 
@@ -88,6 +98,9 @@ const [ howManyDice, setHowManyDice ] = React.useState(0)
 const styles = StyleSheet.create({
 mainContainer: {
   flex: 1,
+},
+expandTextToFit: {
+alignSelf: "flex-start"
 },
 textBox: {
   borderColor: 'black',
@@ -142,7 +155,7 @@ diceAveragesOutput: {
     borderRadius: 20,
     padding: 10,
     textAlign: "center"
-}
+},
 
 })
 

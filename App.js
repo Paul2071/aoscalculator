@@ -43,7 +43,7 @@ export default function App({navigation}) {
         <Stack.Screen 
         name="AvgDice" 
         component={AvgDice} 
-        options={{title: "Calculate the average results of rolling a set number of dice "}}
+        options={{title: "Expected Averages "}}
         />
         <Stack.Screen 
         name="DiceRolling" 
