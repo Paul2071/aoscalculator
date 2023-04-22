@@ -231,7 +231,7 @@ function DiceRolling() {
               onPress={()=> rollDiceUSerInputNumberOfTimes() }>
                   <Image
                   style={styles.diceImageStyling}
-                  source={require("../assets/d6blackred.png")}></Image>
+                  source={require("../assets/images/d6blackred.png")}></Image>
               </TouchableOpacity>
 
               <Text style={[styles.textStyling, styles.textStylingPress]}>Press to hit</Text>
@@ -243,7 +243,7 @@ function DiceRolling() {
               onPress={()=> calculateWounds() }>
                   <Image
                   style={styles.diceImageStyling}
-                  source={require("../assets/d6.png")}></Image>
+                  source={require("../assets/images/d6.png")}></Image>
               </TouchableOpacity>
 
               <Text style={[styles.textStyling, styles.textStylingPress]}>Press to wound</Text>
@@ -255,7 +255,7 @@ function DiceRolling() {
               onPress={()=> resetUserInput() }>
                   <Image
                   style={styles.resetIconStyling}
-                  source={require("../assets/reseticon.png")}></Image>
+                  source={require("../assets/images/reseticon.png")}></Image>
               </TouchableOpacity>
 
               <Text style={[styles.textStyling, styles.textStylingPress]}>Reset </Text>
@@ -277,28 +277,28 @@ function DiceRolling() {
            <View >
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/dice1.png')}
+                        source={require('../assets/images/dice1.png')}
                       ></Image>
                       
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/dice2.png')}
+                        source={require('../assets/images/dice2.png')}
                       ></Image>
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/dice3.png')}
+                        source={require('../assets/images/dice3.png')}
                       ></Image>
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/dice4.png')}
+                        source={require('../assets/images/dice4.png')}
                       ></Image>
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/dice5.png')}
+                        source={require('../assets/images/dice5.png')}
                       ></Image>
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/dice6.png')}
+                        source={require('../assets/images/dice6.png')}
                       ></Image>     
               </View> 
 
@@ -320,28 +320,28 @@ function DiceRolling() {
            <View >
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/dice1.png')}
+                        source={require('../assets/images/dice1.png')}
                       ></Image>
                       
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/dice2.png')}
+                        source={require('../assets/images/dice2.png')}
                       ></Image>
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/dice3.png')}
+                        source={require('../assets/images/dice3.png')}
                       ></Image>
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/dice4.png')}
+                        source={require('../assets/images/dice4.png')}
                       ></Image>
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/dice5.png')}
+                        source={require('../assets/images/dice5.png')}
                       ></Image>
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/dice6.png')}
+                        source={require('../assets/images/dice6.png')}
                       ></Image>     
               </View> 
               <View>

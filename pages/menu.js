@@ -19,7 +19,7 @@ function Menu({navigation}) {
               <TouchableOpacity 
               title='AvgDice'
               onPress={()=> navigation.navigate("AvgDice")} >
-                <Text style={styles.buttonContainerStyling}> DICE ROLL CALCULATOR</Text>
+                <Text style={styles.buttonContainerStyling}> DICE ROLL AVERAGES</Text>
               </TouchableOpacity>
 
               <TouchableOpacity 

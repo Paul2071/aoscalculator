@@ -16,7 +16,7 @@ import MenuHamburger from './components/menuHamburger';
 const Stack = createNativeStackNavigator();
 
 
-export default function App({navigation}) {
+export default function App({}) {
   return (
     <NavigationContainer>
 

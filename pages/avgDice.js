@@ -2,6 +2,7 @@ import React from 'react'
 import { Text, View, TouchableOpacity, Image, StyleSheet } from 'react-native'
 import { TextInput } from 'react-native-paper'
 
+
 function AvgDice() {
 
 const [ howManyDice, setHowManyDice ] = React.useState(0)
@@ -18,9 +19,9 @@ let sixPlus = Math.round (howManyDice - averageOneNumber - averageOneNumber - av
   return (
     <View style={styles.mainContainer}>
         <View style={styles.titlesAndInputContainer}>
-            <Text style={[styles.textBox, styles.textStyling] }>How many dice?</Text>
+            <Text style={[styles.textBox, styles.textStylingTitle] }>How many dice?</Text>
             <TextInput
-            style={[styles.textInputBox, styles.textStyling] }
+            style={[styles.textInputBox, styles.textStylingText] }
             value={howManyDice}
             onChangeText={setHowManyDice}
             keyboardType='numeric'
@@ -28,9 +29,10 @@ let sixPlus = Math.round (howManyDice - averageOneNumber - averageOneNumber - av
 
             </TextInput>
           
-            <Text > {howManyDice} dice are rolled. The middle column is the expected amount of times to see a dice roll .</Text>
-            <Text > The right column is how many of the dice rolls are equal to or above the dice value in the left column. </Text>
-            <Text > For example, if {howManyDice} dice are rolled, on average {fourPlus} are equal to or above 4 </Text>
+            <Text style={styles.textStylingText} > {howManyDice} dice are rolled. The middle column is the expected amount of times to see a dice roll {"\n"}</Text>
+            
+            <Text style={styles.textStylingText} > The right column is how many of the dice rolls are equal to or above the dice value in the left column {"\n"} </Text>
+            <Text style={styles.textStylingText} > For example, if {howManyDice} dice are rolled, on average {fourPlus} will be equal to or above a dice roll of 4 and {fivePlus} will be equal to or above a dice roll of 5 </Text>
         </View>
 
         <View>
@@ -43,28 +45,28 @@ let sixPlus = Math.round (howManyDice - averageOneNumber - averageOneNumber - av
                     <View>
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/dice1.png')}
+                        source={require('../assets/images/dice1.png')}
                       ></Image>
                       
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/dice2.png')}
+                        source={require('../assets/images/dice2.png')}
                       ></Image>
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/dice3.png')}
+                        source={require('../assets/images/dice3.png')}
                       ></Image>
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/dice4.png')}
+                        source={require('../assets/images/dice4.png')}
                       ></Image>
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/dice5.png')}
+                        source={require('../assets/images/dice5.png')}
                       ></Image>
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/dice6.png')}
+                        source={require('../assets/images/dice6.png')}
                       ></Image>   
                       </View>
 
@@ -122,10 +124,17 @@ textInputBox: {
   marginBottom: 10,
   
 },
-textStyling: {
+textStylingText: {
   fontWeight: "bold",
   fontSize: 15,
-  textAlign: "center"
+  textAlign: "center",
+  
+},
+textStylingTitle: {
+fontWeight: "bold",
+textAlign: "center",
+
+
 },
 titlesAndInputContainer:{
 flex: 1,

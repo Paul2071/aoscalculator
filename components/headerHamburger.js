@@ -38,7 +38,7 @@ function toggleMenuVisibility(){
       onPress={toggleMenuVisibility}>
           <Image
           style={{width: 30, height:30}}
-          source={require("../assets/hamburger.png")}
+          source={require("../assets/images/hamburger.png")}
           ></Image>
           <Text>{optionsStatus}</Text>
       </TouchableOpacity>
