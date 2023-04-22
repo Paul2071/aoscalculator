@@ -2,12 +2,14 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useFonts } from 'expo-font'
 
 //page imports
 import Menu from "./pages/menu"
 import AvgDamage from './pages/avgDamage';
 import AvgDice from './pages/avgDice';
 import DiceRolling from './pages/diceRolling';
+import Loading from './pages/loading';
 
 //component imports
 import HeaderHamburger from './components/headerHamburger';
@@ -16,8 +18,9 @@ import MenuHamburger from './components/menuHamburger';
 const Stack = createNativeStackNavigator();
 
 
-export default function App({}) {
-  return (
+export default function App() {
+  
+    return (
     <NavigationContainer>
 
       <Stack.Navigator 
@@ -54,15 +57,5 @@ export default function App({}) {
       </Stack.Navigator>
 
     </NavigationContainer>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-
+   );
+  }

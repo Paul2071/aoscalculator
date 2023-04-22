@@ -3,6 +3,9 @@ import { Text, View, TouchableOpacity, Image, StyleSheet } from 'react-native'
 import { TextInput } from 'react-native-paper'
 
 
+import { globalStyles } from './../globalstyles/global';
+
+
 function AvgDice() {
 
 const [ howManyDice, setHowManyDice ] = React.useState(0)
@@ -29,7 +32,7 @@ let sixPlus = Math.round (howManyDice - averageOneNumber - averageOneNumber - av
 
             </TextInput>
           
-            <Text style={styles.textStylingText} > {howManyDice} dice are rolled. The middle column is the expected amount of times to see a dice roll {"\n"}</Text>
+            <Text style={[styles.textStylingText, globalStyles.customFontRubik]} > {howManyDice} dice are rolled. The middle column is the expected amount of times to see a dice roll {"\n"}</Text>
             
             <Text style={styles.textStylingText} > The right column is how many of the dice rolls are equal to or above the dice value in the left column {"\n"} </Text>
             <Text style={styles.textStylingText} > For example, if {howManyDice} dice are rolled, on average {fourPlus} will be equal to or above a dice roll of 4 and {fivePlus} will be equal to or above a dice roll of 5 </Text>
@@ -128,6 +131,7 @@ textStylingText: {
   fontWeight: "bold",
   fontSize: 15,
   textAlign: "center",
+  fontFamily: "rubik",
   
 },
 textStylingTitle: {
@@ -139,7 +143,8 @@ textAlign: "center",
 titlesAndInputContainer:{
 flex: 1,
 backgroundColor: "lightgreen",
-alignItems: "center"
+alignItems: "center",
+fontFamily: "rubik",
 },
 imageResizing: {
   height: 120,
