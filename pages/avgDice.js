@@ -131,7 +131,7 @@ textStylingText: {
   fontWeight: "bold",
   fontSize: 15,
   textAlign: "center",
-  fontFamily: "rubik",
+  
   
 },
 textStylingTitle: {
@@ -144,7 +144,7 @@ titlesAndInputContainer:{
 flex: 1,
 backgroundColor: "lightgreen",
 alignItems: "center",
-fontFamily: "rubik",
+
 },
 imageResizing: {
   height: 120,
