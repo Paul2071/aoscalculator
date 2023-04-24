@@ -10,6 +10,7 @@ import AvgDamage from './pages/avgDamage';
 import AvgDice from './pages/avgDice';
 import DiceRolling from './pages/diceRolling';
 import Loading from './pages/loading';
+import Checkboxtest from './pages/checkboxtest';
 
 //component imports
 import HeaderHamburger from './components/headerHamburger';
@@ -41,7 +42,7 @@ export default function App() {
         <Stack.Screen 
         name="AvgDamage" 
         component={AvgDamage} 
-        options={{title: "Calculate the average damage of a unit "}}
+        options={{title: "Average Damage "}}
         />
         <Stack.Screen 
         name="AvgDice" 
@@ -52,6 +53,11 @@ export default function App() {
         name="DiceRolling" 
         component={DiceRolling} 
         options={{title: "Roll the dice"}}
+        />
+        <Stack.Screen 
+        name="Checkboxtest" 
+        component={Checkboxtest} 
+        options={{title: "Checkboxtest"}}
         />
 
       </Stack.Navigator>

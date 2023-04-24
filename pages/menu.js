@@ -27,6 +27,11 @@ function Menu({navigation}) {
               onPress={()=> navigation.navigate("DiceRolling")} >
                 <Text style={styles.buttonContainerStyling}>DICE ROLLING</Text>
               </TouchableOpacity>
+              <TouchableOpacity 
+              title='Checkboxtest'
+              onPress={()=> navigation.navigate("Checkboxtest")} >
+                <Text style={styles.buttonContainerStyling}>Checkboxtest</Text>
+              </TouchableOpacity>
 
              
        
