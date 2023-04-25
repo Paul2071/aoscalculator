@@ -41,7 +41,7 @@ export default function App() {
         <Stack.Screen 
         name="AvgDamage" 
         component={AvgDamage} 
-        options={{title: "Calculate the average damage of a unit "}}
+        options={{title: "Average Damage "}}
         />
         <Stack.Screen 
         name="AvgDice" 

@@ -1,9 +1,9 @@
 import Checkbox from 'expo-checkbox';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
 
 
- function Checkboxtest() {
+ function CheckBoxGroup() {
     const [isChecked, setChecked] = useState(false);
     const [isAlsoChecked, setisAlsoChecked] = useState(false);
   
@@ -11,13 +11,43 @@ import { StyleSheet, Text, View } from 'react-native';
       <View style={styles.container}>
 
         <View style={styles.section}>
-          <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
-          <Text style={styles.paragraph}>Normal checkbox</Text>
+          <Checkbox 
+          style={styles.checkbox} 
+          value={isChecked} 
+          onValueChange={setChecked} />
+          <Text style={styles.paragraph}>Reroll 1s</Text>
         </View>
 
         <View style={styles.section}>
-          <Checkbox style={styles.checkbox} value={isAlsoChecked} onValueChange={setisAlsoChecked} />
-          <Text style={styles.paragraph}>Normal checkbox</Text>
+          <Checkbox 
+          style={styles.checkbox} 
+          value={isAlsoChecked} 
+          onValueChange={setisAlsoChecked} />
+          <Text style={styles.paragraph}>Mortal on 6, sequence ends</Text>
+        </View>
+
+        <View style={styles.section}>
+          <Checkbox 
+          style={styles.checkbox} 
+          value={isAlsoChecked} 
+          onValueChange={setisAlsoChecked} />
+          <Text style={styles.paragraph}>Mortal on 6, continue roll</Text>
+        </View>
+
+        <View style={styles.section}>
+          <Checkbox 
+          style={styles.checkbox} 
+          value={isAlsoChecked} 
+          onValueChange={setisAlsoChecked} />
+          <Text style={styles.paragraph}>D3 Mortal on 6, sequence ends</Text>
+        </View>
+
+        <View style={styles.section}>
+          <Checkbox 
+          style={styles.checkbox} 
+          value={isAlsoChecked} 
+          onValueChange={setisAlsoChecked} />
+          <Text style={styles.paragraph}>D3 Mortal on 6, continue roll</Text>
         </View>
 
         <View style={styles.section}>
@@ -27,13 +57,13 @@ import { StyleSheet, Text, View } from 'react-native';
             onValueChange={setChecked}
             color={isChecked ? '#4630EB' : undefined}
           />
-          <Text style={styles.paragraph}>Custom colored checkbox</Text>
+          <Text style={styles.paragraph}>Plus </Text> 
+          <TextInput
+          placeholder='0'></TextInput>
+          <Text> to hit</Text>
         </View>
 
-        <View style={styles.section}>
-          <Checkbox style={styles.checkbox} disabled value={isChecked} onValueChange={setChecked} />
-          <Text style={styles.paragraph}>Disabled checkbox</Text>
-        </View>
+        
 
       </View>
     );
@@ -57,4 +87,4 @@ import { StyleSheet, Text, View } from 'react-native';
     },
   });
 
-  export default Checkboxtest
+  export default CheckBoxGroup
