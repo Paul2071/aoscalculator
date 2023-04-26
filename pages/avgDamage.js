@@ -34,6 +34,9 @@ function AvgDamage({}) {
 
         </View>
         <View style={styles.effectsContainer}>
+
+            <Text></Text>
+
           <CheckBoxGroup/>
         
         </View>
