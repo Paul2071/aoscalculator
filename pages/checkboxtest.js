@@ -9,6 +9,14 @@ import { StyleSheet, Text, View, TextInput } from 'react-native';
   
     return (
       <View style={styles.container}>   
+          <View style={styles.headingContainer}>
+
+            <Text style={styles.textBox}>To Hit</Text>
+            <Text style={styles.textBox} >To wound</Text>
+          </View>
+
+
+
 
           <View>
                   <View style={styles.section}>
@@ -94,52 +102,7 @@ import { StyleSheet, Text, View, TextInput } from 'react-native';
                   </View>
 
 
-        </View>
-        {/* <View style={styles.woundCheckboxContainer}>
-                          <View style={styles.woundCheckboxPositioning}>
-                                <View style={styles.woundCheckbox} >
-                                    <Checkbox 
-                                      //style={styles.woundCheckbox} 
-                                      value={isChecked} 
-                                      onValueChange={setChecked} />
-                                </View>
-                                <View>
-                                    <Checkbox 
-                                      style={styles.woundCheckbox} 
-                                      value={isChecked} 
-                                      onValueChange={setChecked} />
-                                </View>
-                                <View>
-                                    <Checkbox 
-                                      style={styles.woundCheckbox} 
-                                      value={isChecked} 
-                                      onValueChange={setChecked} />
-                                </View>
-                                <View>
-                                    <Checkbox 
-                                      style={styles.woundCheckbox} 
-                                      value={isChecked} 
-                                      onValueChange={setChecked} />
-                                </View>
-                                <View>
-                                    <Checkbox 
-                                      style={styles.woundCheckbox} 
-                                      value={isChecked} 
-                                      onValueChange={setChecked} />
-                                </View>
-                                <View>
-                                    <Checkbox 
-                                      style={styles.woundCheckbox} 
-                                      value={isChecked} 
-                                      onValueChange={setChecked} />
-                                </View>
-                          </View>   
-         </View>
-                           */}
-                          
-
-         
-         
+         </View>                
       </View>
     );
   }
@@ -165,9 +128,20 @@ import { StyleSheet, Text, View, TextInput } from 'react-native';
      padding: 10,
     },
     textInputStyling: {
-      textAlign: "center",
+      textAlign: "center",   
+    },
+    headingContainer: {
+      flexDirection: "row",
+      justifyContent: "space-between",
+      margin: 5
+    },
+    textBox: {
+      borderColor: 'black',
+      borderWidth: 1,
+      borderRadius: 5,
+      padding: 10,
+      height: 40,
      
-      
       
     },
    
