@@ -9,12 +9,13 @@ function AvgDamage({}) {
 
 
     <View style={styles.mainContainer}>
+    
         <View style={styles.inputContainer}>
             
             <View style={styles.hitAndWoundInput} >
-              <Text style={styles.textTitlesStyling} >Hitting on</Text>
+              <Text style={styles.textTitlesStyling} >To Hit</Text>
               <TextInput style={styles.textInputStyling}  placeholder='0'></TextInput>
-              <Text style={styles.textTitlesStyling}>Wounding on</Text>
+              <Text style={styles.textTitlesStyling}>To Wound</Text>
               <TextInput style={styles.textInputStyling}  placeholder='0'></TextInput>
             </View>
 
@@ -27,9 +28,9 @@ function AvgDamage({}) {
 
             <View style={styles.averageHitandWounds}>
               <Text style={styles.textTitlesStyling}>Average Hits</Text>
-              <Text> 0</Text>
+              <Text style={styles.averageHitandWoundsText}> 0</Text>
               <Text style={styles.textTitlesStyling}>Average Wounds</Text>
-              <Text> 0</Text>
+              <Text style={styles.averageHitandWoundsText}> 0</Text>
             </View>
 
             <View style={styles.enemySavesInput}>
@@ -38,21 +39,10 @@ function AvgDamage({}) {
               <Text style={styles.textTitlesStyling}>Ward Save</Text>
               <TextInput style={styles.textInputStyling} placeholder='0'></TextInput>
             </View>
-
-
-            <View >
-            
-            
-            
-           
-            
-            
-            </View>
-
+          
         </View>
 
         <View style={styles.effectsContainer}>
-
             
           <CheckBoxGroup/>
         
@@ -80,21 +70,18 @@ const styles = StyleSheet.create({
 
   //container that has all content on this page
   mainContainer: {
-      flex: 1,
-      
+      flex: 1,   
+      backgroundColor: 'lightblue'  
   },
   //container that has the top half requiring user input
   inputContainer: {
     //backgroundColor: "grey",
-    flex: 1.8,
-    
-      
+    flex: 1.8,          
   },
   //container that has the bottom half of the page, the checkboxes and damage output
   effectsContainer: {
     flex: 2,
-    backgroundColor: "pink"
-    
+    //backgroundColor: "pink"    
   },
  
   
@@ -102,36 +89,30 @@ const styles = StyleSheet.create({
   textInputStyling: {
   borderColor: 'black',
   borderWidth: 1,
-  borderRadius: 20,
-  
+  borderRadius: 20,  
   width: 50,
-  textAlign: "center",
- 
-  
+  textAlign: "center",  
   },
   //styling for any text components on the page
   textTitlesStyling: {
-    borderColor: 'black',
+  borderColor: 'black',
   borderWidth: 1,
   borderRadius: 5,
   alignContent: 'center',
   padding: 10,
-  textAlign:"center" 
-
   },
+  //positioning for hit and wound textinput
   hitAndWoundInput: {
     flexDirection: "row",
     justifyContent: 'space-evenly',
     margin: 5,
-    padding: 10,
-    textAlign: "center"
+    padding: 10,    
   },
   attacksAndRendInput : {
     flexDirection: "row",
     justifyContent: 'space-evenly',
     margin: 5,
-    padding: 10,
-    textAlign: "center",
+    padding: 10,    
     
   },
   averageHitandWounds: {
@@ -139,7 +120,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     margin: 5,
     padding: 10,
-    textAlign: "center"
+    
+  },
+  averageHitandWoundsText: {
+      padding: 10,
+      borderWidth: 1,
+      borderRadius: 5,
   },
   enemySavesInput: {
     flexDirection: "row",
@@ -164,11 +150,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     flex: 1,
-    backgroundColor: "grey"
+    //backgroundColor: "grey"
   
   },
   damageCalculationsText: {
-   
+   fontWeight: "bold",
+   fontSize: 15,
    padding: 3
   },
 
