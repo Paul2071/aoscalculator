@@ -3,7 +3,14 @@ import { Text, View, StyleSheet, TextInput, TouchableOpacity, Image, } from 'rea
 import CheckBoxGroup from './checkboxtest'
 
 function AvgDamage({}) {
-
+  //user input what value to hit the dice needs
+  const [ toHitValue, setToHitValue ] = React.useState(0)
+  //user input what value to wound the dice needs
+  const [ toWoundValue, setToWoundValue ] = React.useState(0)
+  //user input to determine number of attacks being made
+  const [attacksValue, setAttacksValue ] = React.useState(0)
+  //user input to determine value of rend
+  const [rendValue, setRendValue] = React.useState(0)
   
   return (
 
@@ -14,16 +21,37 @@ function AvgDamage({}) {
             
             <View style={styles.hitAndWoundInput} >
               <Text style={styles.textTitlesStyling} >To Hit</Text>
-              <TextInput style={styles.textInputStyling}  placeholder='0'></TextInput>
+              <TextInput 
+              style={styles.textInputStyling}  
+              placeholder='0'
+              keyboardType='numeric'
+              value={toHitValue}
+              onChangeText={setToHitValue}>
+              </TextInput>
               <Text style={styles.textTitlesStyling}>To Wound</Text>
-              <TextInput style={styles.textInputStyling}  placeholder='0'></TextInput>
+              <TextInput style={styles.textInputStyling}  
+              placeholder='0'
+              keyboardType='numeric'
+              value={toWoundValue}
+              onChangeText={setToWoundValue}>                
+              </TextInput>
             </View>
 
             <View style={styles.attacksAndRendInput}>
               <Text style={styles.textTitlesStyling}>Number of attacks</Text>
-              <TextInput style={styles.textInputStyling}   placeholder='0'></TextInput>
+              <TextInput style={styles.textInputStyling}   
+              placeholder='0'
+              keyboardType='numeric'
+              value={attacksValue}
+              onChangeText={setAttacksValue}>
+              </TextInput>
               <Text style={styles.textTitlesStyling}>Rend</Text>
-              <TextInput style={styles.textInputStyling}  placeholder='0'></TextInput>
+              <TextInput style={styles.textInputStyling}  
+              placeholder='0'
+              keyboardType='numeric'
+              value={rendValue}
+              onChangeText={setRendValue}>                
+              </TextInput>
             </View>
 
             <View style={styles.averageHitandWounds}>
