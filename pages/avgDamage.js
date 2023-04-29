@@ -1,17 +1,48 @@
 import React from 'react'
 import { Text, View, StyleSheet, TextInput, TouchableOpacity, Image, } from 'react-native'
-import CheckBoxGroup from './checkboxtest'
+import CheckBoxGroup from './checkbox'
 
-function AvgDamage({}) {
+function AvgDamage() {
   //user input what value to hit the dice needs
   const [ toHitValue, setToHitValue ] = React.useState(0)
   //user input what value to wound the dice needs
   const [ toWoundValue, setToWoundValue ] = React.useState(0)
   //user input to determine number of attacks being made
-  const [attacksValue, setAttacksValue ] = React.useState(0)
+  const [attacksValue, setAttacksValue ] = React.useState(10)
   //user input to determine value of rend
   const [rendValue, setRendValue] = React.useState(0)
+  //user input to determine the enemy unit save
+  const [enemySaveValue, setEnemySaveValue ] = React.useState(0)
+  //user input to determine the ward save value
+  const [ wardSaveValue, setWardSaveValue ] = React.useState(0)
+
+
+  //average hits calculated by toHit divided by attacksValue
+  const [averageHitsCalculation, setAverageHitsCalculation ] = React.useState(10)
   
+
+  // toHit / attacksValue = percentage of attacksValue hit
+  //percentage of attacksValue hit multiplied by attacksValue gives average number of hits
+
+
+  // 6 ? 1 = 6  100  -- attacks value is 6, to hit is 1, 100% hit
+  // 6 ? 2 = 5  83   -- attacks value is 6, to hit is 2, 83% hit
+  // 6 ? 3 = 4  66   -- attacks value is 6, to hit is 3, 66% hit
+  // 6 ? 4 = 3  50   -- attacks value is 6, to hit is 4, 50% hit
+  // 6 ? 5 = 2  33   -- attacks value is 6, to hit is 5, 33% hit
+  // 6 ? 6 = 1  16   -- attacks value is 6, to hit is 6, 16% hit
+
+
+  function calculateAverageHits () {
+      const averageHits = ""
+
+   const percentageOfHits = toHit / attacksValue
+
+
+  }
+  
+
+
   return (
 
 
@@ -20,6 +51,7 @@ function AvgDamage({}) {
         <View style={styles.inputContainer}>
             
             <View style={styles.hitAndWoundInput} >
+            
               <Text style={styles.textTitlesStyling} >To Hit</Text>
               <TextInput 
               style={styles.textInputStyling}  
@@ -56,16 +88,26 @@ function AvgDamage({}) {
 
             <View style={styles.averageHitandWounds}>
               <Text style={styles.textTitlesStyling}>Average Hits</Text>
-              <Text style={styles.averageHitandWoundsText}> 0</Text>
+              <Text style={styles.averageHitandWoundsText}> {averageHitsCalculation}</Text>
               <Text style={styles.textTitlesStyling}>Average Wounds</Text>
               <Text style={styles.averageHitandWoundsText}> 0</Text>
             </View>
 
             <View style={styles.enemySavesInput}>
               <Text style={styles.textTitlesStyling}>Enemy Save</Text>
-              <TextInput style={styles.textInputStyling} placeholder='0'></TextInput>
+              <TextInput style={styles.textInputStyling} 
+              placeholder='0'
+              keyboardType='numeric'
+              value={enemySaveValue}
+              onChangeText={setEnemySaveValue}>
+              </TextInput>
               <Text style={styles.textTitlesStyling}>Ward Save</Text>
-              <TextInput style={styles.textInputStyling} placeholder='0'></TextInput>
+              <TextInput style={styles.textInputStyling} 
+              placeholder='0'
+              keyboardType='numeric'
+              value={wardSaveValue}
+              onChangeText={setWardSaveValue}>                
+              </TextInput>
             </View>
           
         </View>
