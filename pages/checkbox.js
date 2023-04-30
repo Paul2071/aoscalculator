@@ -1,6 +1,6 @@
 import Checkbox from 'expo-checkbox';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 
 
  function CheckBoxGroup() {
@@ -9,11 +9,7 @@ import { StyleSheet, Text, View, TextInput } from 'react-native';
   
     return (
       <View style={styles.container}>   
-          <View style={styles.headingContainer}>
-
-            <Text style={styles.textBox}>To Hit</Text>
-            <Text style={styles.textBox} >To wound</Text>
-          </View>
+          
 
 
 
