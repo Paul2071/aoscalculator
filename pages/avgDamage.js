@@ -20,7 +20,12 @@ function AvgDamage() {
   //average hits calculated by toHit divided by attacksValue
   const [averageHitsCalculation, setAverageHitsCalculation ] = React.useState(0)
   //average wounds calculation, taking averageHitsCalculation value and using same if check as tohit finding how many wound
-  
+  const [ averageWoundsCalculation, setAverageWoundsCalculation ]  = React.useState(0)
+  //the number of wounds calculated after factoring in enemy save
+  const [enemySaveAndWounds, setEnemySaveAndWounds]  = React.useState(0)
+
+  //mortal wounds generated 
+  const [mortalWounds, setMortalWounds]  = React.useState(0)
 
   // toHit / attacksValue = percentage of attacksValue hit
   //percentage of attacksValue hit multiplied by attacksValue gives average number of hits
@@ -82,32 +87,66 @@ function AvgDamage() {
   }
 
 
-    function calculateAverageWounds () {
+   async function  calculateAverageWounds () {
       if (toWoundValue === "1"){
-
+        
+        setAverageWoundsCalculation(1 * averageHitsCalculation)  
       }
       else if (toWoundValue === "2" ){
-
+        setAverageWoundsCalculation(Math.round(0.83 * averageHitsCalculation) )
       }
       else if (toWoundValue === "3" ){
-
+        setAverageWoundsCalculation(Math.round(0.66 * averageHitsCalculation) )
       }
       else if (toWoundValue === "4" ){
-
+        setAverageWoundsCalculation(Math.round(0.50 * averageHitsCalculation) )
       }
       else if (toWoundValue === "5" ){
-
+        setAverageWoundsCalculation(Math.round(0.33 * averageHitsCalculation) )
       }
       else if (toWoundValue === "6" ){
-
+        setAverageWoundsCalculation(Math.round(0.17 * averageHitsCalculation) )
       }
+      
+      actualWounds(averageWoundsCalculation)
     }
 
+      //here, I have average wounds calculation. Need to include enermy save, ward save, and rend
 
 
+      function actualWounds (averageWoundsCalculation) {
+        console.log(averageWoundsCalculation)
+        
+         if   (enemySaveValue === "1") {
+           setEnemySaveAndWounds(Math.round (1 * averageWoundsCalculation ))
+         }
+         else if (enemySaveValue === "2") {
+           setEnemySaveAndWounds(Math.round (0.83 * averageWoundsCalculation ))
+         }
+         else if (enemySaveValue === "3") {
+           setEnemySaveAndWounds(Math.round (0.66 * averageWoundsCalculation ))
+         }
+         else if (enemySaveValue === "4") {
+           setEnemySaveAndWounds(Math.round (0.50 * averageWoundsCalculation ))
+         }
+         else if (enemySaveValue === "5") {
+           setEnemySaveAndWounds(Math.round (0.33 * averageWoundsCalculation ))
+         }
+         else if (enemySaveValue === "6") {
+           setEnemySaveAndWounds(Math.round (0.17 * averageWoundsCalculation ))
+         }
+      }
 
   function resetUserInput ( ) {
-    console.log("hello there")
+    setToHitValue(0)
+    setToWoundValue(0)
+    setAttacksValue(0)
+    setRendValue(0)
+    setEnemySaveValue(0)
+    setWardSaveValue(0)
+    setAverageHitsCalculation(0)
+    setAverageWoundsCalculation(0)
+    setEnemySaveAndWounds(0)
   }
 
    
@@ -166,7 +205,7 @@ function AvgDamage() {
               <Text style={styles.textTitlesStyling}>Average Hits</Text>
               <Text style={styles.averageHitandWoundsText}> {averageHitsCalculation}</Text>
               <Text style={styles.textTitlesStyling}>Average Wounds</Text>
-              <Text style={styles.averageHitandWoundsText}> 0</Text>
+              <Text style={styles.averageHitandWoundsText}> {averageWoundsCalculation}</Text>
             </View>
 
             <View style={styles.enemySavesInput}>
@@ -216,12 +255,12 @@ function AvgDamage() {
               <Text style={styles.damageCalculationsText}>Mortal Wounds</Text>
               <Text style={styles.damageCalculationsText}>0</Text>
               <Text style={styles.damageCalculationsText}>Wounds</Text>
-              <Text style={styles.damageCalculationsText} >0</Text>
+              <Text style={styles.damageCalculationsText} >{enemySaveAndWounds}</Text>
             </View>
 
             <View style={styles.totalDamageCalculationContainer}>
               <Text style={styles.totalDamageCalculationText}>TOTAL DAMAGE: </Text>
-              <Text style={styles.totalDamageCalculationText}>0</Text>
+              <Text style={styles.totalDamageCalculationText}>{enemySaveAndWounds + mortalWounds}</Text>
             </View>
           
         </View>
