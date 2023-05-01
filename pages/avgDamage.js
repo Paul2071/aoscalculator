@@ -12,10 +12,13 @@ function AvgDamage() {
   //user input to determine value of rend
   const [rendValue, setRendValue] = React.useState(0)
   //user input to determine the enemy unit save
-  const [enemySaveValue, setEnemySaveValue ] = React.useState(0)
+  const [shownEnemySaveValue, setShownEnemySaveValue ] = React.useState(0 )
   //user input to determine the ward save value
   const [ wardSaveValue, setWardSaveValue ] = React.useState(0)
-
+  //user input determining the rend value
+ 
+ //actual enemy save value is taking user input of save value minus the rend value and is used for wound calculations
+ const [ actualEnemySaveValue, setActualEnemySaveValue]  = React.useState(0)
 
   //average hits calculated by toHit divided by attacksValue
   const [averageHitsCalculation, setAverageHitsCalculation ] = React.useState(0)
@@ -27,34 +30,7 @@ function AvgDamage() {
   //mortal wounds generated 
   const [mortalWounds, setMortalWounds]  = React.useState(0)
 
-  // toHit / attacksValue = percentage of attacksValue hit
-  //percentage of attacksValue hit multiplied by attacksValue gives average number of hits
-
-
-  // 6 ? 1 = 6  100  -- attacks value (attacksValue) is 6, to hit (toHitValue) is 1  100% hit
-  // 6 ? 2 = 5  83   -- attacks value is 6, to hit is 2, 83% hit
-  // 6 ? 3 = 4  66   -- attacks value is 6, to hit is 3, 66% hit
-  // 6 ? 4 = 3  50   -- attacks value is 6, to hit is 4, 50% hit
-  // 6 ? 5 = 2  33   -- attacks value is 6, to hit is 5, 33% hit
-  // 6 ? 6 = 1  16   -- attacks value is 6, to hit is 6, 16% hit
-
-  // 20 ? 4 = 10 50%
-
-  //hitting on 6s = 17%        1/6 
-  //hitting on 5s = 33%        2/6  
-  //hitting on 4s = 50%        3/6
-  //hitting on 3s = 66%        4/6 
-  //hitting on 2s = 83%        5/6
-  //hitting on 1s = 100%       6/6
-
-
-      
-
-  // //  let percentageOfHits = toHitValue / attacksValue
-
-  // //  let averageHits = percentageOfHits * attacksValue
-
-  // //  setAverageHitsCalculation(averageHits)
+  let actualEnemySave = Number(shownEnemySaveValue) + Number(rendValue)
  
 
   function calculateAverageHits ( ) {
@@ -115,26 +91,34 @@ function AvgDamage() {
 
 
       function actualWounds (averageWoundsCalculation) {
-        console.log(averageWoundsCalculation)
+        console.log(typeof averageWoundsCalculation)
+        console.log( actualEnemySave)
+        console.log( enemySaveAndWounds + "before")
+       
+
         
-         if   (enemySaveValue === "1") {
-           setEnemySaveAndWounds(Math.round (1 * averageWoundsCalculation ))
+        
+         if   (actualEnemySave === 1) {
+           setEnemySaveAndWounds(Math.round (1  * averageWoundsCalculation ))
          }
-         else if (enemySaveValue === "2") {
-           setEnemySaveAndWounds(Math.round (0.83 * averageWoundsCalculation ))
+         else if (actualEnemySave === 2) {
+           setEnemySaveAndWounds(Math.round (0.83  * averageWoundsCalculation ))
          }
-         else if (enemySaveValue === "3") {
-           setEnemySaveAndWounds(Math.round (0.66 * averageWoundsCalculation ))
+         else if (actualEnemySave === 3) {
+           setEnemySaveAndWounds(Math.round (0.66  * averageWoundsCalculation ))
          }
-         else if (enemySaveValue === "4") {
-           setEnemySaveAndWounds(Math.round (0.50 * averageWoundsCalculation ))
+         else if (actualEnemySave === 4) {
+           setEnemySaveAndWounds(Math.round (0.50  * averageWoundsCalculation))
          }
-         else if (enemySaveValue === "5") {
-           setEnemySaveAndWounds(Math.round (0.33 * averageWoundsCalculation ))
+         else if (actualEnemySave === 5) {
+           setEnemySaveAndWounds(Math.round (0.33  * averageWoundsCalculation ))
          }
-         else if (enemySaveValue === "6") {
-           setEnemySaveAndWounds(Math.round (0.17 * averageWoundsCalculation ))
+         else if (actualEnemySave === 6) {
+           setEnemySaveAndWounds(Math.round (0.17  * averageWoundsCalculation ))
          }
+
+         console.log( enemySaveAndWounds + "after")
+       
       }
 
   function resetUserInput ( ) {
@@ -142,7 +126,7 @@ function AvgDamage() {
     setToWoundValue(0)
     setAttacksValue(0)
     setRendValue(0)
-    setEnemySaveValue(0)
+    setShownEnemySaveValue(0)
     setWardSaveValue(0)
     setAverageHitsCalculation(0)
     setAverageWoundsCalculation(0)
@@ -213,8 +197,9 @@ function AvgDamage() {
               <TextInput style={styles.textInputStyling} 
               placeholder='0'
               keyboardType='numeric'
-              value={enemySaveValue}
-              onChangeText={setEnemySaveValue}>
+              value={shownEnemySaveValue}
+               onChangeText={setShownEnemySaveValue}
+              >
               </TextInput>
               <Text style={styles.textTitlesStyling}>Ward Save</Text>
               <TextInput style={styles.textInputStyling} 
