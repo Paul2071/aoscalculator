@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Text, View, StyleSheet, TextInput, TouchableOpacity, Image, } from 'react-native'
 import CheckBoxGroup from './checkbox'
 
+
 function AvgDamage() {
   //user input what value to hit the dice needs
   const [ toHitValue, setToHitValue ] = React.useState(0)
@@ -88,33 +89,42 @@ function AvgDamage() {
     }
 
       //here, I have average wounds calculation. Need to include enermy save, ward save, and rend
+      // save 1 = 0 d
+      // save 2 = 5d
+      // save 3 = 10d
+      //save 4 = 15d
+      // save 5 = 20d
+      // save 6 = 25d
 
 
       function actualWounds (averageWoundsCalculation) {
-        console.log(typeof averageWoundsCalculation)
+        console.log( averageWoundsCalculation)
         console.log( actualEnemySave)
         console.log( enemySaveAndWounds + "before")
        
+        
 
         
-        
          if   (actualEnemySave === 1) {
-           setEnemySaveAndWounds(Math.round (1  * averageWoundsCalculation ))
+           setEnemySaveAndWounds(Math.round (averageWoundsCalculation - (1  * averageWoundsCalculation)  ))
          }
          else if (actualEnemySave === 2) {
-           setEnemySaveAndWounds(Math.round (0.83  * averageWoundsCalculation ))
+           setEnemySaveAndWounds(Math.round ( averageWoundsCalculation - (0.83  * averageWoundsCalculation)  ))
          }
          else if (actualEnemySave === 3) {
-           setEnemySaveAndWounds(Math.round (0.66  * averageWoundsCalculation ))
+           setEnemySaveAndWounds(Math.round (averageWoundsCalculation -  (0.66  * averageWoundsCalculation )))
          }
          else if (actualEnemySave === 4) {
-           setEnemySaveAndWounds(Math.round (0.50  * averageWoundsCalculation))
+           setEnemySaveAndWounds(Math.round (averageWoundsCalculation -  (0.50  * averageWoundsCalculation)))
          }
          else if (actualEnemySave === 5) {
-           setEnemySaveAndWounds(Math.round (0.33  * averageWoundsCalculation ))
+           setEnemySaveAndWounds(Math.round ( averageWoundsCalculation -  (0.33  * averageWoundsCalculation) ))
          }
          else if (actualEnemySave === 6) {
-           setEnemySaveAndWounds(Math.round (0.17  * averageWoundsCalculation ))
+           setEnemySaveAndWounds(Math.round ( averageWoundsCalculation -  (0.17  * averageWoundsCalculation) ))
+         } 
+         else if (actualEnemySave > 6 ) {
+          setEnemySaveAndWounds(averageWoundsCalculation)
          }
 
          console.log( enemySaveAndWounds + "after")
