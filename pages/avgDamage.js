@@ -27,6 +27,8 @@ function AvgDamage() {
   const [ averageWoundsCalculation, setAverageWoundsCalculation ]  = React.useState(0)
   //the number of wounds calculated after factoring in enemy save
   const [enemySaveAndWounds, setEnemySaveAndWounds]  = React.useState(0)
+  //the amound of damage done after ward saves
+  const [ woundsTotalAfterSaveAndWardSave, setWoundsTotalAfterSaveAndWardSave] = React.useState(0)
 
   //mortal wounds generated 
   const [mortalWounds, setMortalWounds]  = React.useState(0)
@@ -97,14 +99,8 @@ function AvgDamage() {
       // save 6 = 25d
 
 
-      function actualWounds (averageWoundsCalculation) {
-        console.log( averageWoundsCalculation)
-        console.log( actualEnemySave)
-        console.log( enemySaveAndWounds + "before")
-       
-        
-
-        
+      function actualWounds (averageWoundsCalculation) {     
+                       
          if   (actualEnemySave === 1) {
            setEnemySaveAndWounds(Math.round (averageWoundsCalculation - (1  * averageWoundsCalculation)  ))
          }
@@ -125,10 +121,36 @@ function AvgDamage() {
          } 
          else if (actualEnemySave > 6 ) {
           setEnemySaveAndWounds(averageWoundsCalculation)
-         }
+         }        
+       wardSave (averageWoundsCalculation)
+      }
 
-         console.log( enemySaveAndWounds + "after")
-       
+
+
+      function wardSave (averageWoundsCalculation) {
+          console.log(enemySaveAndWounds)
+        //  console.log(enemySaveAndWounds + "warsave")
+        //  console.log(wardSaveValue)
+        //  console.log(averageWoundsCalculation)
+         if ( wardSaveValue === "0" ){
+          console.log(wardSaveValue + "this is 0")
+         } 
+         if ( wardSaveValue === "1" ){
+          setWoundsTotalAfterSaveAndWardSave(Math.round(enemySaveAndWounds - (1 * enemySaveAndWounds )))          } 
+         else if (wardSaveValue === "2") {
+          setWoundsTotalAfterSaveAndWardSave(Math.round(enemySaveAndWounds - (0.83 * enemySaveAndWounds )))          }
+        else if (wardSaveValue === "3") {
+          setWoundsTotalAfterSaveAndWardSave(Math.round(enemySaveAndWounds - (0.66 * enemySaveAndWounds )))          }
+        else if (wardSaveValue === "4") {
+          setWoundsTotalAfterSaveAndWardSave(Math.round(enemySaveAndWounds - (0.50 * enemySaveAndWounds )))         }
+        else if (wardSaveValue === "5") {
+          setWoundsTotalAfterSaveAndWardSave(Math.round(enemySaveAndWounds - (0.33 * enemySaveAndWounds )))        
+        }
+        else if (wardSaveValue === "6") {
+          setWoundsTotalAfterSaveAndWardSave(Math.round(enemySaveAndWounds - (0.17 * enemySaveAndWounds )))         } 
+        else if (wardSaveValue > "6" ) {
+          setWoundsTotalAfterSaveAndWardSave( enemySaveAndWounds     )
+        }        
       }
 
   function resetUserInput ( ) {
@@ -255,7 +277,7 @@ function AvgDamage() {
 
             <View style={styles.totalDamageCalculationContainer}>
               <Text style={styles.totalDamageCalculationText}>TOTAL DAMAGE: </Text>
-              <Text style={styles.totalDamageCalculationText}>{enemySaveAndWounds + mortalWounds}</Text>
+              <Text style={styles.totalDamageCalculationText}>{woundsTotalAfterSaveAndWardSave + mortalWounds}</Text>
             </View>
           
         </View>
