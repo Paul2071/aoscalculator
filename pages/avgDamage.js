@@ -272,7 +272,7 @@ function AvgDamage() {
               <Text style={styles.damageCalculationsText}>Mortal Wounds</Text>
               <Text style={styles.damageCalculationsText}>0</Text>
               <Text style={styles.damageCalculationsText}>Wounds</Text>
-              <Text style={styles.damageCalculationsText} >{enemySaveAndWounds}</Text>
+              <Text style={styles.damageCalculationsText} >{woundsTotalAfterSaveAndWardSave}</Text>
             </View>
 
             <View style={styles.totalDamageCalculationContainer}>
