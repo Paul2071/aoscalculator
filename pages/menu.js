@@ -11,32 +11,55 @@ function Menu({navigation}) {
 
             <View style={styles.keyPositioningLeft}>
 
-              <Text>Key:</Text>
-                <View style={styles.keyContentPositioning}>
-                  <Text style={styles.keyContent}>H</Text> 
-                  <Text>:To hit</Text>
-                </View>
+            <View style={styles.rightKeyContentPositioning} >
+                  <Text >H</Text>
+                  <Text >: To hit</Text>
+                  
+                </View>  
 
-              <View style={styles.keyContentPositioning}>
-              <Text style={styles.keyContent}>W</Text>
-               <Text>:To wound</Text> 
-              </View>
+                <View style={styles.rightKeyContentPositioning}>
+                  <Text >W</Text>
+                  <Text >: To wound</Text>
+                 </View>  
+
+                <View style={styles.rightKeyContentPositioning}>
+                  <Text >A</Text>
+                  <Text >: Total attacks</Text>
+                 </View>
+
+                 <View style={styles.rightKeyContentPositioning}>
+                  <Text >D</Text>
+                  <Text >: Damage</Text>
+                 </View>  
+
+                      
 
 
-              <View style={styles.keyContentPositioning}>
-              <Text style={styles.keyContent}>A</Text>
-               <Text>:Attacks total</Text> 
-              </View>
 
             </View>
 
 
-            <View style={styles.keyPositioningRight}>
 
-              <Text>R:</Text>
-              <Text>D:</Text>
-              <Text>S:</Text>
-              <Text>W:</Text>
+            <View style={styles.keyPositioningRight}>
+              
+                <View style={styles.rightKeyContentPositioning} >
+                  <Text >R</Text>
+                  <Text >: Rend</Text>
+                  
+                </View>  
+
+                 
+
+                <View style={styles.rightKeyContentPositioning}>
+                  <Text >S</Text>
+                  <Text >: Base Save</Text>
+                 </View>
+
+                <View style={styles.rightKeyContentPositioning}>
+                  <Text >W</Text>
+                  <Text >: Ward Save</Text>
+                 
+                </View>  
 
             </View>
 
@@ -118,18 +141,42 @@ const styles = StyleSheet.create ({
 
   },
   keyContent: {
-    backgroundColor: "red",
-    borderRadius: 5,
-    padding: 8,
-    borderWidth: 4,
-    height: 30,
-    width: 30,
+    backgroundColor: "#c1121f",
+    borderRadius: 8,   
+    borderWidth: 3, 
+    textAlign: "center",
+    color: "#fff8dc",
+    padding: 10,
+    margin: 2,
+    fontWeight: "bold",
+    width: 40,
+    height: 40,
+    fontSize: 16,
     
   },
-  
+    
+
   keyContentPositioning: {
-    flexDirection: "row"
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "space-evenly",
   },
+
+ 
+
+  keyContentContainer: {
+    flex: 6,
+    backgroundColor: "lightgrey"
+  },
+  keyContentValues: {
+    flex: 1,
+  },
+
+  rightKeyContentPositioning: {
+    flexDirection: "row",
+    justifyContent: "center"  
+  },
+ 
 })
 
 export default Menu
