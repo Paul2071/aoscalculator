@@ -9,7 +9,9 @@ function AvgDamage() {
   //user input what value to wound the dice needs
   const [ toWoundValue, setToWoundValue ] = React.useState(0)
   //user input to determine number of attacks being made
-  const [attacksValue, setAttacksValue ] = React.useState(10)
+  const [attacksValue, setAttacksValue ] = React.useState(0)
+  //user inout to determine damage value
+  const [ damageValue, setDamageValue ] = React.useState(0)
   //user input to determine value of rend
   const [rendValue, setRendValue] = React.useState(0)
   //user input to determine the enemy unit save
@@ -183,7 +185,7 @@ function AvgDamage() {
             
             <View style={styles.hitAndWoundInput} >
             
-              <Text style={styles.textTitlesStyling} >To Hit</Text>
+              <Text style={styles.textTitlesStyling} >H</Text>
               <TextInput 
               style={styles.textInputStyling}  
               placeholder='0'
@@ -191,7 +193,7 @@ function AvgDamage() {
               value={toHitValue}
               onChangeText={setToHitValue}>
               </TextInput>
-              <Text style={styles.textTitlesStyling}>To Wound</Text>
+              <Text style={styles.textTitlesStyling}>W</Text>
               <TextInput style={styles.textInputStyling}  
               placeholder='0'
               keyboardType='numeric'
@@ -201,14 +203,22 @@ function AvgDamage() {
             </View>
 
             <View style={styles.attacksAndRendInput}>
-              <Text style={styles.textTitlesStyling}>Number of attacks</Text>
+              <Text style={styles.textTitlesStyling}>A</Text>
               <TextInput style={styles.textInputStyling}   
               placeholder='0'
               keyboardType='numeric'
               value={attacksValue}
               onChangeText={setAttacksValue}>
               </TextInput>
-              <Text style={styles.textTitlesStyling}>Rend</Text>
+              <Text style={styles.textTitlesStyling}>D</Text>
+              <TextInput style={styles.textInputStyling}   
+              placeholder='0'
+              keyboardType='numeric'
+              value={damageValue}
+              onChangeText={setDamageValue}>
+              </TextInput>
+
+              <Text style={styles.textTitlesStyling}>R</Text>
               <TextInput style={styles.textInputStyling}  
               placeholder='0'
               keyboardType='numeric'
@@ -218,14 +228,14 @@ function AvgDamage() {
             </View>
 
             <View style={styles.averageHitandWounds}>
-              <Text style={styles.textTitlesStyling}>Average Hits</Text>
+              <Text style={styles.textTitles}>Average Hits</Text>
               <Text style={styles.averageHitandWoundsText}> {averageHitsCalculation}</Text>
-              <Text style={styles.textTitlesStyling}>Average Wounds</Text>
+              <Text style={styles.textTitles}>Average Wounds</Text>
               <Text style={styles.averageHitandWoundsText}> {averageWoundsCalculation}</Text>
             </View>
 
             <View style={styles.enemySavesInput}>
-              <Text style={styles.textTitlesStyling}>Enemy Save</Text>
+              <Text style={styles.textTitlesStyling}>S</Text>
               <TextInput style={styles.textInputStyling} 
               placeholder='0'
               keyboardType='numeric'
@@ -233,7 +243,7 @@ function AvgDamage() {
                onChangeText={setShownEnemySaveValue}
               >
               </TextInput>
-              <Text style={styles.textTitlesStyling}>Ward Save</Text>
+              <Text style={styles.textTitlesStyling}>W</Text>
               <TextInput style={styles.textInputStyling} 
               placeholder='0'
               keyboardType='numeric'
@@ -243,7 +253,7 @@ function AvgDamage() {
             </View>
             <View style={styles.headingContainer}>
 
-            <Text style={styles.textTitlesStyling}>To Hit</Text>
+            
             <TouchableOpacity 
               title='AvgDice'
               onPress={()=>calculateAverageHits()} >
@@ -256,28 +266,23 @@ function AvgDamage() {
                   source={require("../assets/images/reseticon.png")}></Image>
               </TouchableOpacity>
             
-            <Text style={styles.textTitlesStyling} >To wound</Text>
+           
           </View>
           
         </View>
 
-        <View style={styles.effectsContainer}>
+        {/* <View style={styles.effectsContainer}>
             
           <CheckBoxGroup/>
         
-        </View>
+        </View> */}
 
         <View style={styles.damageCalculationsContainer}>
-            <View style={styles.damageCalculationsTitles}>
-              <Text style={styles.damageCalculationsText}>Mortal Wounds</Text>
-              <Text style={styles.damageCalculationsText}>0</Text>
-              <Text style={styles.damageCalculationsText}>Wounds</Text>
-              <Text style={styles.damageCalculationsText} >{woundsTotalAfterSaveAndWardSave}</Text>
-            </View>
+            
 
             <View style={styles.totalDamageCalculationContainer}>
               <Text style={styles.totalDamageCalculationText}>TOTAL DAMAGE: </Text>
-              <Text style={styles.totalDamageCalculationText}>{woundsTotalAfterSaveAndWardSave + mortalWounds}</Text>
+              <Text style={styles.totalDamageCalculationText}>{(woundsTotalAfterSaveAndWardSave * damageValue ) + mortalWounds}</Text>
             </View>
           
         </View>
@@ -295,17 +300,13 @@ const styles = StyleSheet.create({
   //container that has the top half requiring user input
   inputContainer: {
     //backgroundColor: "grey",
-    flex: 2.4,  
-    backgroundColor: 'lightblue'          
+    flex: 1.5,  
+    backgroundColor: 'pink'          
   },
-  //container that has the bottom half of the page, the checkboxes and damage output
-  effectsContainer: {
-    flex: 2,
-    //backgroundColor: "pink"    
-  },
+
   headingContainer: {
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "space-evenly",
     margin: 5
   },
   buttonContainerStyling: {
@@ -334,32 +335,44 @@ const styles = StyleSheet.create({
   width: 50,
   textAlign: "center",  
   },
-  //styling for any text components on the page
+  textTitles: {
+    borderColor: 'black',
+    borderWidth: 1,
+    borderRadius: 5,
+    alignContent: 'center',
+    padding: 10,
+  },
+  //styling for any user input heading text components on the page
   textTitlesStyling: {
-  borderColor: 'black',
-  borderWidth: 1,
-  borderRadius: 5,
-  alignContent: 'center',
+  backgroundColor: "#c1121f",
+  borderRadius: 8,   
+  borderWidth: 3, 
+  textAlign: "center",
+  color: "#fff8dc",
   padding: 10,
+  fontWeight: "bold",
+  width: 40,
+  height: 40,
+  fontSize: 16,
   },
   //positioning for hit and wound textinput
   hitAndWoundInput: {
     flexDirection: "row",
     justifyContent: 'space-evenly',
-    margin: 5,
+    margin: 15,
     padding: 10,    
   },
   attacksAndRendInput : {
     flexDirection: "row",
     justifyContent: 'space-evenly',
-    margin: 5,
+    margin: 15,
     padding: 10,    
     
   },
   averageHitandWounds: {
     flexDirection: "row",
     justifyContent: 'space-evenly',
-    margin: 5,
+    margin: 15,
     padding: 10,
     
   },
@@ -371,14 +384,14 @@ const styles = StyleSheet.create({
   enemySavesInput: {
     flexDirection: "row",
     justifyContent: 'space-evenly',
-    margin: 5,
+    margin: 15,
     padding: 10,
     textAlign: "center"
   },
 
    //container for the damage calculations at the bottom of screen
    damageCalculationsContainer: {
-    //backgroundColor: 'lightgreen',
+    backgroundColor: 'gold',
     flex: 0.6,
     borderColor: 'black',
     borderRadius: 5,
@@ -387,31 +400,23 @@ const styles = StyleSheet.create({
    
 },
 
-  damageCalculationsTitles: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    flex: 1,
-    //backgroundColor: "grey"
+ 
   
-  },
-  damageCalculationsText: {
-   fontWeight: "bold",
-   fontSize: 15,
-   padding: 3
-  },
-
   totalDamageCalculationContainer: {
     flex: 2,
-    backgroundColor: "lightblue",
+    backgroundColor: "lightgreen",
     flexDirection: 'row',
     justifyContent: 'space-evenly',
+    alignItems: "center",
     
-
+    
+    
   },
   totalDamageCalculationText: {
+    
     fontSize: 25,
     fontWeight: "bold",
-    marginTop: 15
+    
   }
 
 })

@@ -3,34 +3,37 @@ import { Text, Button, View, TouchableOpacity, StyleSheet  } from 'react-native'
 
 import HeaderHamburger from '../components/headerHamburger'
 
+//align left legend heading
+//margin left on key
+
 function Menu({navigation}) {
   return (
 
     <View style={styles.mainContainer}>
           <View style={styles.keyContainer}>
 
-            <View style={styles.keyPositioningLeft}>
+            <View style={styles.keyPositioningLeftContainer}>
+
+            <View  >
+                  <Text style={styles.legendContainerStyling}>LEGEND</Text>
+                                  </View>  
 
             <View style={styles.rightKeyContentPositioning} >
-                  <Text >H</Text>
-                  <Text >: To hit</Text>
+                  <Text style={styles.keyContentBox} >H</Text>
+                  <Text style={styles.keyContentText}>: TO HIT</Text>
                   
                 </View>  
 
                 <View style={styles.rightKeyContentPositioning}>
-                  <Text >W</Text>
-                  <Text >: To wound</Text>
+                  <Text style={styles.keyContentBox}>W</Text>
+                  <Text style={styles.keyContentText}>: TO WOUND</Text>
                  </View>  
 
                 <View style={styles.rightKeyContentPositioning}>
-                  <Text >A</Text>
-                  <Text >: Total attacks</Text>
+                  <Text style={styles.keyContentBox}>A</Text>
+                  <Text style={styles.keyContentText}>: TOTAL ATTACKS</Text>
                  </View>
 
-                 <View style={styles.rightKeyContentPositioning}>
-                  <Text >D</Text>
-                  <Text >: Damage</Text>
-                 </View>  
 
                       
 
@@ -40,24 +43,31 @@ function Menu({navigation}) {
 
 
 
-            <View style={styles.keyPositioningRight}>
+            <View style={styles.keyPositioningRightContainer}>
               
+                
+                 <View style={styles.rightKeyContentPositioning}>
+                  <Text style={styles.keyContentBox}>D</Text>
+                  <Text style={styles.keyContentText}>: DAMAGE</Text>
+                 </View>  
+
+
                 <View style={styles.rightKeyContentPositioning} >
-                  <Text >R</Text>
-                  <Text >: Rend</Text>
+                  <Text style={styles.keyContentBox}>R</Text>
+                  <Text style={styles.keyContentText}>: REND</Text>
                   
                 </View>  
 
                  
 
                 <View style={styles.rightKeyContentPositioning}>
-                  <Text >S</Text>
-                  <Text >: Base Save</Text>
+                  <Text style={styles.keyContentBox}>S</Text>
+                  <Text style={styles.keyContentText}>: BASE SAVE</Text>
                  </View>
 
                 <View style={styles.rightKeyContentPositioning}>
-                  <Text >W</Text>
-                  <Text >: Ward Save</Text>
+                  <Text style={styles.keyContentBox}>W</Text>
+                  <Text style={styles.keyContentText}>: WARD SAVE</Text>
                  
                 </View>  
 
@@ -125,22 +135,34 @@ const styles = StyleSheet.create ({
     width: 180,
     fontSize: 20,
   },
-  keyPositioningLeft: {
-    backgroundColor: "lightgreen",
+ legendContainerStyling: {
+    backgroundColor: "#c1121f",
+    borderRadius: 35,    
+    textAlign: "center",
+    color: "#fff8dc",
+    padding: 10,   
+    fontWeight: "bold",
+    width: 140,
+    fontSize: 20,
+    
+  },
+  keyPositioningLeftContainer: {
+    backgroundColor: "#003049",
     flex: 1,
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-evenly",
+    
   },
-  keyPositioningRight: {
+  keyPositioningRightContainer: {
     flex: 1,
-    backgroundColor: "salmon",
+    backgroundColor: "#003049",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-evenly",
 
   },
-  keyContent: {
+  keyContentBox: {
     backgroundColor: "#c1121f",
     borderRadius: 8,   
     borderWidth: 3, 
@@ -153,28 +175,23 @@ const styles = StyleSheet.create ({
     height: 40,
     fontSize: 16,
     
-  },
     
-
-  keyContentPositioning: {
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "space-evenly",
-  },
-
+  }, 
+  keyContentText: {
+    fontWeight: "bold",
+    padding: 10,
+    color: "#fff8dc"
+  },  
  
 
-  keyContentContainer: {
-    flex: 6,
-    backgroundColor: "lightgrey"
-  },
-  keyContentValues: {
-    flex: 1,
-  },
 
-  rightKeyContentPositioning: {
+   rightKeyContentPositioning: {
     flexDirection: "row",
-    justifyContent: "center"  
+    justifyContent: "center",
+    alignSelf: 'flex-start',
+    marginLeft: 10,
+    
+    
   },
  
 })
