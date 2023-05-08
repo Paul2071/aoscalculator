@@ -228,9 +228,9 @@ function AvgDamage() {
             </View>
 
             <View style={styles.averageHitandWounds}>
-              <Text style={styles.textTitles}>Average Hits</Text>
+              <Text style={styles.textTitles}>AVERAGE HITS</Text>
               <Text style={styles.averageHitandWoundsText}> {averageHitsCalculation}</Text>
-              <Text style={styles.textTitles}>Average Wounds</Text>
+              <Text style={styles.textTitles}>AVERAGE WOUNDS</Text>
               <Text style={styles.averageHitandWoundsText}> {averageWoundsCalculation}</Text>
             </View>
 
@@ -251,9 +251,14 @@ function AvgDamage() {
               onChangeText={setWardSaveValue}>                
               </TextInput>
             </View>
+
+          
+        </View>
             <View style={styles.headingContainer}>
 
             
+            
+           
             <TouchableOpacity 
               title='AvgDice'
               onPress={()=>calculateAverageHits()} >
@@ -265,11 +270,7 @@ function AvgDamage() {
                   style={styles.resetIconStyling}
                   source={require("../assets/images/reseticon.png")}></Image>
               </TouchableOpacity>
-            
-           
           </View>
-          
-        </View>
 
         {/* <View style={styles.effectsContainer}>
             
@@ -277,15 +278,15 @@ function AvgDamage() {
         
         </View> */}
 
-        <View style={styles.damageCalculationsContainer}>
+       
             
 
             <View style={styles.totalDamageCalculationContainer}>
-              <Text style={styles.totalDamageCalculationText}>TOTAL DAMAGE: </Text>
-              <Text style={styles.totalDamageCalculationText}>{(woundsTotalAfterSaveAndWardSave * damageValue ) + mortalWounds}</Text>
+              <Text style={styles.totalDamageCalculationFont}>AVERAGE DAMAGE: </Text>
+              <Text style={styles.totalDamageCalculationFont}>{(woundsTotalAfterSaveAndWardSave * damageValue ) + mortalWounds}</Text>
             </View>
           
-        </View>
+       
     </View>
   )
 }
@@ -294,20 +295,26 @@ const styles = StyleSheet.create({
 
   //container that has all content on this page
   mainContainer: {
-      flex: 1,   
+      flex: 1,  
+      backgroundColor: "#669bbc" 
+      
       
   },
   //container that has the top half requiring user input
   inputContainer: {
-    //backgroundColor: "grey",
+    
     flex: 1.5,  
-    backgroundColor: 'pink'          
+          
   },
 
   headingContainer: {
     flexDirection: "row",
     justifyContent: "space-evenly",
-    margin: 5
+    alignItems: "center",
+    
+    margin: 5,
+    flex: 0.8
+    
   },
   buttonContainerStyling: {
     backgroundColor: "#c1121f",
@@ -316,6 +323,7 @@ const styles = StyleSheet.create({
     color: "#fff8dc",
     padding: 10,
     fontWeight: "bold",
+    fontSize: 15,
     
     
     
@@ -336,11 +344,15 @@ const styles = StyleSheet.create({
   textAlign: "center",  
   },
   textTitles: {
-    borderColor: 'black',
-    borderWidth: 1,
     borderRadius: 5,
     alignContent: 'center',
     padding: 10,
+    backgroundColor: "#c1121f",
+    color: "#fff8dc",
+    fontWeight: "bold",
+    fontSize: 15,
+    
+    
   },
   //styling for any user input heading text components on the page
   textTitlesStyling: {
@@ -374,12 +386,18 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     margin: 15,
     padding: 10,
+    backgroundColor: "#c1121f",
+    borderRadius: 5,
+    borderWidth: 5,
+    
     
   },
   averageHitandWoundsText: {
       padding: 10,
-      borderWidth: 1,
+      color: "#fff8dc",
       borderRadius: 5,
+      fontWeight: "bold",
+      fontSize: 15,
   },
   enemySavesInput: {
     flexDirection: "row",
@@ -389,33 +407,29 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
 
-   //container for the damage calculations at the bottom of screen
-   damageCalculationsContainer: {
-    backgroundColor: 'gold',
+  
+  
+  
+  totalDamageCalculationContainer: {
+    
     flex: 0.6,
     borderColor: 'black',
     borderRadius: 5,
     borderWidth: 5,
-    margin: 2
-   
-},
-
- 
-  
-  totalDamageCalculationContainer: {
-    flex: 2,
-    backgroundColor: "lightgreen",
+    margin: 2,
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     alignItems: "center",
+    backgroundColor: "#c1121f",
     
     
     
   },
-  totalDamageCalculationText: {
+  totalDamageCalculationFont: {
     
     fontSize: 25,
     fontWeight: "bold",
+    color: "#fff8dc",
     
   }
 
