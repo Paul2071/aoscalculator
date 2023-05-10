@@ -51,7 +51,7 @@ export default function App() {
         <Stack.Screen 
         name="DiceRolling" 
         component={DiceRolling} 
-        options={{title: "Roll the dice"}}
+        options={{title: "Roll the Dice "}}
         />
 
       </Stack.Navigator>

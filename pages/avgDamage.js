@@ -342,6 +342,7 @@ const styles = StyleSheet.create({
   borderRadius: 20,  
   width: 50,
   textAlign: "center",  
+  
   },
   textTitles: {
     borderRadius: 5,

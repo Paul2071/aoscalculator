@@ -166,7 +166,7 @@ function DiceRolling() {
         {/*view for to hit and to wound values */}
         <View style={styles.toHitPositioning}>
 
-          <Text style={[styles.textBox, styles.textStyling] }>To Hit</Text>
+          <Text style={styles.textBoxTitle }>H</Text>
 
           <TextInput
               textAlign={'center'}
@@ -177,7 +177,7 @@ function DiceRolling() {
               placeholder="0">
           </TextInput>
 
-          <Text style={[styles.textBox, styles.textStyling] }>To Wound</Text>
+          <Text style={styles.textBoxTitle }>W</Text>
          
           <TextInput
               textAlign={'center'}
@@ -188,11 +188,7 @@ function DiceRolling() {
               placeholder="0">
           </TextInput>
 
-        </View>
- {/*view for how many dice */}
-        <View style={styles.diceNumberPositioning}>
-
-            <Text style={[styles.textBox, styles.textStyling] }>How many Dice?</Text>
+            <Text style={styles.textBoxTitle }>A</Text>
 
             <TextInput 
                 textAlign={'center'}
@@ -202,18 +198,18 @@ function DiceRolling() {
                 keyboardType="numeric"
                 placeholder="0">          
             </TextInput>
-
         </View>
+ 
  {/*view for total hit and wound values */}
         <View style={styles.totalHitPositioning}>
 
-          <Text style={[styles.textBox, styles.textStyling] }>Total Hit</Text>
+          <Text style={[styles.textBox, styles.textStyling] }>TOTAL HIT</Text>
 
           <Text style={styles.totalHitWoundBox}>
               {totalHit}
           </Text>
 
-          <Text style={[styles.textBox, styles.textStyling] }>Total Wound</Text>
+          <Text style={[styles.textBox, styles.textStyling] }>TOTAL WOUND</Text>
 
           <Text style={styles.totalHitWoundBox}>
               {totalWound}
@@ -234,7 +230,6 @@ function DiceRolling() {
                   source={require("../assets/images/d6blackred.png")}></Image>
               </TouchableOpacity>
 
-              <Text style={[styles.textStyling, styles.textStylingPress]}>Press to hit</Text>
         </View>
 
         <View>
@@ -246,7 +241,6 @@ function DiceRolling() {
                   source={require("../assets/images/d6.png")}></Image>
               </TouchableOpacity>
 
-              <Text style={[styles.textStyling, styles.textStylingPress]}>Press to wound</Text>
               
         </View>
         <View style={styles.resetIconPositioning}>
@@ -258,17 +252,18 @@ function DiceRolling() {
                   source={require("../assets/images/reseticon.png")}></Image>
               </TouchableOpacity>
 
-              <Text style={[styles.textStyling, styles.textStylingPress]}>Reset </Text>
 
         </View>
 
     </View>
 
+
+    
 {/* view for dispalying columns of dice rolls */}
 
     <View style={styles.actualDiceRollsPositioning}>
-       <Text style={[styles.textBox, styles.textStyling]}>Hit Rolls</Text>
-       <Text style={[styles.textBox, styles.textStyling]}>Wound Rolls</Text> 
+       <Text style={[styles.textBox, styles.textStyling]}>HIT ROLLS</Text>
+       <Text style={[styles.textBox, styles.textStyling]}>WOUND ROLLS</Text> 
 
     </View>  
 
@@ -364,7 +359,7 @@ const styles = StyleSheet.create({
 //view that contains all of screen  
   mainContainer: {
     flex: 1,
-    //backgroundColor: "#003049",
+    backgroundColor: "#669bbc",
     
   },
 //font styling on whole page  
@@ -372,18 +367,25 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 15,
   },
-  //extra style to change colour of text near press
-  textStylingPress: {
-      color: "#fdf0d5",
-  },
+  
 //text comps that contain navigational cues/titles "to hit". "total hit" 
   textBox: {
-    borderColor: 'black',
-    borderWidth: 1,
-    borderRadius: 5,
+    alignSelf: "center",
+    color: "#fff8dc"
+    
+  },
+  textBoxTitle: {
+    backgroundColor: "#c1121f",
+    borderRadius: 8,   
+    borderWidth: 3, 
+    textAlign: "center",
+    color: "#fff8dc",
     padding: 10,
+    margin: 5,
+    fontWeight: "bold",
+    width: 40,
     height: 40,
-    margin: 10,
+    fontSize: 16,
     
   },
 //text component containing total hit and wound values calculate from dice rolls
@@ -392,20 +394,20 @@ const styles = StyleSheet.create({
     height: 40,
     width: 40,
     margin: 10,
-    borderWidth: 1,
-    borderRadius: 20,
     padding: 10,
-    textAlign: "center"
+    textAlign: "center",
+    color: "#fff8dc",
+    fontWeight: "bold",
   },
 
 //text inputs that user updates  
   userInputBox: {
-    height: 35,
-    width: 35,
-    margin: 12,
-    borderWidth: 1,
-    borderRadius: 5,
-    padding: 10,
+    borderColor: 'black',
+  borderWidth: 1,
+  borderRadius: 20,  
+  width: 50,
+  textAlign: "center", 
+    
   },
 
 //text components that display the contents of the dice rolls
@@ -420,36 +422,35 @@ const styles = StyleSheet.create({
     fontWeight: "bold"
   },
   
-//posittioning of the view containing to hit and to wound titles  
+//posittioning of the view containing to hit, to wound titles and user input
   toHitPositioning: {
     backgroundColor: "#669bbc",
     flexDirection: "row",
-    justifyContent: 'space-evenly'
+    justifyContent: 'space-evenly',
+    
+    margin: 10
     
     
   },
 
-  //positioning of the view containing how many dice title
-  diceNumberPositioning: {    
-    backgroundColor: "#669bbc",
-    flexDirection: "row",
-    justifyContent: 'space-evenly'   
-    
-  },
   
   //positioning of the total hit and total wound titles
   totalHitPositioning: {
     backgroundColor: "#669bbc",
     flexDirection: "row",
-    justifyContent: 'space-evenly'
-    
+    justifyContent: 'space-evenly',
+    borderRadius: 8,   
+    borderWidth: 3,   
+    margin: 10,
+    backgroundColor: "#c1121f",
   },
 
   //positioning of dice images to roll to hit and to wound
   diceImagePositioning: {
-    backgroundColor: "#c1121f",    
+   // backgroundColor: "#c1121f",    
     flexDirection: "row",
     justifyContent: "space-evenly",
+    
     
   },
   //reset icon styling
@@ -467,7 +468,7 @@ const styles = StyleSheet.create({
   actualDiceRollsPositioning: {
     backgroundColor: "#669bbc",
     flexDirection: "row",
-    justifyContent: 'space-evenly'
+    justifyContent: 'space-evenly',
   },
 
   //view containing d6 images and actual hit rolls
@@ -489,7 +490,13 @@ const styles = StyleSheet.create({
   diceImageStyling: {
     height: 150,
     width: 150,
-  }
+    borderWidth: 3, 
+    margin: 10,
+    borderColor: "black"
+  },
+
+
+
 });
 
 export default DiceRolling

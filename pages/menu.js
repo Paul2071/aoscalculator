@@ -92,7 +92,7 @@ function Menu({navigation}) {
               <TouchableOpacity 
               title='DiceRolling'
               onPress={()=> navigation.navigate("DiceRolling")} >
-                <Text style={styles.buttonContainerStyling}>DICE ROLLING</Text>
+                <Text style={styles.buttonContainerStyling}>ATTACK DICE ROLLING</Text>
               </TouchableOpacity>
 
             
