@@ -22,7 +22,7 @@ let sixPlus = Math.round (howManyDice - averageOneNumber - averageOneNumber - av
   return (
     <View style={styles.mainContainer}>
         <View style={styles.titlesAndInputContainer}>
-            <Text style={[styles.textBox, styles.textStylingTitle] }>How many dice?</Text>
+            <Text style={[styles.textBox, styles.textStylingTitle] }>HOW MANY DICE?</Text>
             <TextInput
             style={[styles.textInputBox, styles.textStylingText] }
             value={howManyDice}
@@ -109,7 +109,8 @@ alignSelf: "flex-start"
 },
 textBox: {
   borderColor: 'black',
-  borderWidth: 1,
+  backgroundColor: "#c1121f" ,
+  borderWidth: 3,
   borderRadius: 5,
   padding: 10,
   height: 40,
@@ -133,16 +134,19 @@ textStylingText: {
   textAlign: "center",
   
   
+  
+  
 },
 textStylingTitle: {
 fontWeight: "bold",
 textAlign: "center",
+color: "#fff8dc"
 
 
 },
 titlesAndInputContainer:{
 flex: 1,
-backgroundColor: "lightgreen",
+backgroundColor: "#669bbc" ,
 alignItems: "center",
 
 },
@@ -156,7 +160,7 @@ resizingSingleDiceImages: {
   margin: 5,
 },
 diceAndAveragesContainer: {
-  backgroundColor: "lightblue",
+  backgroundColor: "#669bbc" ,
   flex: 1,
   flexDirection: "row",
   justifyContent: 'space-evenly'

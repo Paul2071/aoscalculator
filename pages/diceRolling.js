@@ -436,7 +436,7 @@ const styles = StyleSheet.create({
   
   //positioning of the total hit and total wound titles
   totalHitPositioning: {
-    backgroundColor: "#669bbc",
+    
     flexDirection: "row",
     justifyContent: 'space-evenly',
     borderRadius: 8,   
