@@ -130,12 +130,13 @@ function AvgDamage() {
 
 
       function wardSave (averageWoundsCalculation) {
-          console.log(enemySaveAndWounds)
+          console.log(woundsTotalAfterSaveAndWardSave)
         //  console.log(enemySaveAndWounds + "warsave")
         //  console.log(wardSaveValue)
         //  console.log(averageWoundsCalculation)
-         if ( wardSaveValue === "0" ){
-          console.log(wardSaveValue + "this is 0")
+         if ( wardSaveValue === 0 ){
+          console.log(" I CAN SEE")
+          setWoundsTotalAfterSaveAndWardSave( enemySaveAndWounds     )
          } 
          if ( wardSaveValue === "1" ){
           setWoundsTotalAfterSaveAndWardSave(Math.round(enemySaveAndWounds - (1 * enemySaveAndWounds )))          } 
@@ -165,6 +166,7 @@ function AvgDamage() {
     setAverageHitsCalculation(0)
     setAverageWoundsCalculation(0)
     setEnemySaveAndWounds(0)
+    setDamageValue(0)
   }
 
    
@@ -247,6 +249,7 @@ function AvgDamage() {
               <TextInput style={styles.textInputStyling} 
               placeholder='0'
               keyboardType='numeric'
+              defaultValue={wardSaveValue}              
               value={wardSaveValue}
               onChangeText={setWardSaveValue}>                
               </TextInput>

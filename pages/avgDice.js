@@ -32,10 +32,11 @@ let sixPlus = Math.round (howManyDice - averageOneNumber - averageOneNumber - av
 
             </TextInput>
           
-            <Text style={[styles.textStylingText, globalStyles.customFontRubik]} > {howManyDice} dice are rolled. The middle column is the expected amount of times to see a dice roll {"\n"}</Text>
+            <Text style={[styles.textStylingText, globalStyles.customFontRubik]} > {howManyDice} dice are rolled. The middle column is the expected amount of times to see a dice value. {"\n"}</Text>
             
             <Text style={styles.textStylingText} > The right column is how many of the dice rolls are equal to or above the dice value in the left column {"\n"} </Text>
-            <Text style={styles.textStylingText} > For example, if {howManyDice} dice are rolled, on average {fourPlus} will be equal to or above a dice roll of 4 and {fivePlus} will be equal to or above a dice roll of 5 </Text>
+            <Text style={styles.textStylingText} > For example, if {howManyDice} dice are rolled, on average {fourPlus} of the {howManyDice} dice will have a value that is equal to or above a dice roll of 4.{"\n"}
+             </Text>
         </View>
 
         <View>
