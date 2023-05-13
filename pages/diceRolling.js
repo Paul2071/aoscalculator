@@ -262,14 +262,20 @@ function DiceRolling() {
 {/* view for dispalying columns of dice rolls */}
 
     <View style={styles.actualDiceRollsPositioning}>
+
+      <View style={{justifyContent: "flex-start"}}> 
        <Text style={[styles.textBox, styles.textStyling]}>HIT ROLLS</Text>
+       </View>
+
+      <View>
        <Text style={[styles.textBox, styles.textStyling]}>WOUND ROLLS</Text> 
+       </View>
 
     </View>  
 
 {/*view for containing dice images and number of dice rolled */}    
       <View style={styles.totalDiceRollsPositioning}>
-           <View >
+           <View style={styles.hitRollsContainer} >
                       <Image 
                         style={styles.resizingSingleDiceImages}
                         source={require('../assets/images/dice1.png')}
@@ -297,7 +303,7 @@ function DiceRolling() {
                       ></Image>     
               </View> 
 
-              <View>
+              <View style={styles.hitRollsContainer2}>
                   <Text style={styles.calculatedHitWoundValues}>{diceRollHits[1]}</Text>
 
                   <Text style={styles.calculatedHitWoundValues}>{diceRollHits[2]}</Text>
@@ -312,7 +318,7 @@ function DiceRolling() {
 
               </View>
 
-           <View >
+           <View style={styles.woundRollsContainer}>
                       <Image 
                         style={styles.resizingSingleDiceImages}
                         source={require('../assets/images/dice1.png')}
@@ -339,9 +345,11 @@ function DiceRolling() {
                         source={require('../assets/images/dice6.png')}
                       ></Image>     
               </View> 
-              <View>
-              <Text style={styles.calculatedHitWoundValues}>{diceRollWounds[1]}</Text>
-              <Text style={styles.calculatedHitWoundValues}>{diceRollWounds[2]}</Text>
+              <View style={styles.woundRollsContainer2}>
+              <Text style={styles.calculatedHitWoundValues}
+              >{diceRollWounds[1]}</Text>
+              <Text style={styles.calculatedHitWoundValues} >{diceRollWounds[2]}
+              </Text>
               <Text style={styles.calculatedHitWoundValues}>{diceRollWounds[3]}</Text>
               <Text style={styles.calculatedHitWoundValues}>{diceRollWounds[4]}</Text>
               <Text style={styles.calculatedHitWoundValues}>{diceRollWounds[5]}</Text>
@@ -402,7 +410,7 @@ const styles = StyleSheet.create({
 
 //text inputs that user updates  
   userInputBox: {
-    borderColor: 'black',
+  borderColor: 'black',
   borderWidth: 1,
   borderRadius: 20,  
   width: 50,
@@ -412,26 +420,25 @@ const styles = StyleSheet.create({
 
 //text components that display the contents of the dice rolls
   calculatedHitWoundValues: {
-    height: 30,
-    width: 30,
+    height: 40,
+    width: 40,
     borderRadius: 15,
     borderWidth: 1,
-    fontSize: 10,
-    padding: 8,
+    fontSize: 15,
+    padding: 10,
+    margin: 5,
     textAlign: "center",
-    fontWeight: "bold"
+    fontWeight: "bold",
+    
   },
   
 //posittioning of the view containing to hit, to wound titles and user input
   toHitPositioning: {
     backgroundColor: "#669bbc",
     flexDirection: "row",
-    justifyContent: 'space-evenly',
-    
-    margin: 10
-    
-    
-  },
+    justifyContent: 'space-evenly',    
+    margin: 10  
+    },
 
   
   //positioning of the total hit and total wound titles
@@ -455,8 +462,8 @@ const styles = StyleSheet.create({
   },
   //reset icon styling
   resetIconStyling: {
-      height: 40,
-      width: 40,
+      height: 50,
+      width: 50,
       
   },
 //reset icon and text positioning
@@ -469,6 +476,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#669bbc",
     flexDirection: "row",
     justifyContent: 'space-evenly',
+    backgroundColor: "#c1121f",
+    borderRadius: 8, 
+    borderWidth: 3, 
+    textAlign: "center",
+    color: "#fff8dc",
+    margin: 10,
+    padding: 10,
+    fontWeight: "bold",
+    fontSize: 15,
   },
 
   //view containing d6 images and actual hit rolls
@@ -482,8 +498,9 @@ const styles = StyleSheet.create({
   },
 //resized dice side images, will change when redo the images
   resizingSingleDiceImages:{
-    height: 30,
-    width: 30,
+    height: 40,
+    width: 40,
+    margin: 5
   },
 
 //resizing the big dice images used to roll the dice  
@@ -494,6 +511,23 @@ const styles = StyleSheet.create({
     margin: 10,
     borderColor: "black"
   },
+
+  hitRollsContainer: {
+    flex: 1,    
+    alignItems: "center",
+},
+  hitRollsContainer2: {
+    flex: 1,    
+    alignItems: "center"
+},
+  woundRollsContainer: {
+    flex: 1,    
+    alignItems: "center"
+},
+  woundRollsContainer2: {
+    flex: 1,    
+    alignItems: "center"
+},
 
 
 
