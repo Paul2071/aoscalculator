@@ -334,7 +334,8 @@ const styles = StyleSheet.create({
   },
   resetIconStyling: {
       height: 40,
-      width: 40
+      width: 40,
+      borderRadius: 8
   },
  
   

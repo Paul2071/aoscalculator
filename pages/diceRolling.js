@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text, View, TextInput, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native'
-
+import { Frame1 } from '../assets/images/figma/toHitDice'
 
 function DiceRolling() {
   //user input what value to hit the dice needs
@@ -219,15 +219,13 @@ function DiceRolling() {
 
 {/*view for dice image and text */}
 
-    <View style={styles.diceImagePositioning}>
+    <View style={styles.buttonPositioning}>
 
           <View>
 
               <TouchableOpacity
               onPress={()=> rollDiceUSerInputNumberOfTimes() }>
-                  <Image
-                  style={styles.diceImageStyling}
-                  source={require("../assets/images/d6blackred.png")}></Image>
+                  <Text style={styles.buttonContainerStyling}> CALCULATE HITS</Text>
               </TouchableOpacity>
 
         </View>
@@ -236,9 +234,7 @@ function DiceRolling() {
 
               <TouchableOpacity
               onPress={()=> calculateWounds() }>
-                  <Image
-                  style={styles.diceImageStyling}
-                  source={require("../assets/images/d6.png")}></Image>
+                  <Text style={styles.buttonContainerStyling}> CALCULATE WOUNDS</Text>
               </TouchableOpacity>
 
               
@@ -364,7 +360,7 @@ function DiceRolling() {
 const styles = StyleSheet.create({
 
 
-//view that contains all of screen  
+//view that contains all of screen   003049
   mainContainer: {
     flex: 1,
     backgroundColor: "#669bbc",
@@ -441,7 +437,7 @@ const styles = StyleSheet.create({
     },
 
   
-  //positioning of the total hit and total wound titles
+  //positioning of the total hit and total wound titles 
   totalHitPositioning: {
     
     flexDirection: "row",
@@ -453,22 +449,22 @@ const styles = StyleSheet.create({
   },
 
   //positioning of dice images to roll to hit and to wound
-  diceImagePositioning: {
-   // backgroundColor: "#c1121f",    
+  buttonPositioning: {
+    
     flexDirection: "row",
     justifyContent: "space-evenly",
+    marginTop: 50,
+    
+    marginBottom: 50,
     
     
   },
   //reset icon styling
   resetIconStyling: {
-      height: 50,
-      width: 50,
+      height: 40,
+      width: 40,
+      borderRadius: 8
       
-  },
-//reset icon and text positioning
-  resetIconPositioning: {
-      marginTop: 110,
   },
 
    //positioning of hit rolls and wound rolls 
@@ -511,7 +507,19 @@ const styles = StyleSheet.create({
     margin: 10,
     borderColor: "black"
   },
-
+  buttonContainerStyling: {
+    backgroundColor: "#c1121f",
+    borderRadius: 8,  
+    textAlign: "center",
+    color: "#fff8dc",
+    padding: 10,
+    fontWeight: "bold",
+    fontSize: 15,
+    
+    
+    
+    
+  },
   hitRollsContainer: {
     flex: 1,    
     alignItems: "center",
