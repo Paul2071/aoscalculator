@@ -186,40 +186,59 @@ function AvgDamage() {
         <View style={styles.inputContainer}>
             
             <View style={styles.hitAndWoundInput} >
-            
-              <Text style={styles.textTitlesStyling} >H</Text>
-              <TextInput 
-              style={styles.textInputStyling}  
-              placeholder='0'
-              keyboardType='numeric'
-              value={toHitValue}
-              onChangeText={setToHitValue}>
-              </TextInput>
-              <Text style={styles.textTitlesStyling}>W</Text>
-              <TextInput style={styles.textInputStyling}  
-              placeholder='0'
-              keyboardType='numeric'
-              value={toWoundValue}
-              onChangeText={setToWoundValue}>                
-              </TextInput>
+
+               <View  >
+                  <Text style={styles.inputValuesStyling}>Input values</Text>
+               </View>  
+               
+               <View style={styles.userInputContainer}>
+                  <Text style={styles.textTitlesStyling} >H</Text>
+                  <TextInput 
+                  style={styles.textInputStyling}  
+                  placeholder='0'
+                  keyboardType='numeric'
+                  value={toHitValue}
+                  onChangeText={setToHitValue}>
+                  </TextInput>
+              </View>
+
+              <View style={styles.userInputContainer}>
+                  <Text style={styles.textTitlesStyling}>W</Text>
+
+                  <TextInput style={styles.textInputStyling}  
+                  placeholder='0'
+                  keyboardType='numeric'
+                  value={toWoundValue}
+                  onChangeText={setToWoundValue}>                
+                  </TextInput>
+                </View>
+
+              <View style={styles.userInputContainer}>
+                    <Text style={styles.textTitlesStyling}>A</Text>
+
+                    <TextInput style={styles.textInputStyling}   
+                    placeholder='0'
+                    keyboardType='numeric'
+                    value={attacksValue}
+                    onChangeText={setAttacksValue}>
+                    </TextInput>
+               </View>
             </View>
 
             <View style={styles.attacksAndRendInput}>
-              <Text style={styles.textTitlesStyling}>A</Text>
-              <TextInput style={styles.textInputStyling}   
-              placeholder='0'
-              keyboardType='numeric'
-              value={attacksValue}
-              onChangeText={setAttacksValue}>
-              </TextInput>
-              <Text style={styles.textTitlesStyling}>D</Text>
-              <TextInput style={styles.textInputStyling}   
-              placeholder='0'
-              keyboardType='numeric'
-              value={damageValue}
-              onChangeText={setDamageValue}>
-              </TextInput>
 
+            <View style={styles.userInputContainer}>
+                <Text style={styles.textTitlesStyling}>D</Text>
+                <TextInput style={styles.textInputStyling}   
+                placeholder='0'
+                keyboardType='numeric'
+                value={damageValue}
+                onChangeText={setDamageValue}>
+                </TextInput>
+            </View>
+
+
+            <View style={styles.userInputContainer}>
               <Text style={styles.textTitlesStyling}>R</Text>
               <TextInput style={styles.textInputStyling}  
               placeholder='0'
@@ -227,37 +246,38 @@ function AvgDamage() {
               value={rendValue}
               onChangeText={setRendValue}>                
               </TextInput>
+             </View>
+
+              <View style={styles.userInputContainer}>  
+                <Text style={styles.textTitlesStyling}>S</Text>
+                <TextInput style={styles.textInputStyling} 
+                placeholder='0'
+                keyboardType='numeric'
+                value={shownEnemySaveValue}
+                onChangeText={setShownEnemySaveValue}>
+                </TextInput>
+              </View>
+
+              <View style={styles.userInputContainer}>
+                <Text style={styles.textTitlesStyling}>W</Text>
+                <TextInput style={styles.textInputStyling} 
+                placeholder='0'
+                keyboardType='numeric'
+                defaultValue={wardSaveValue}              
+                value={wardSaveValue}
+                onChangeText={setWardSaveValue}>                
+                </TextInput>
+              </View>
             </View>
 
-            <View style={styles.averageHitandWounds}>
-              <Text style={styles.textTitles}>AVERAGE HITS</Text>
-              <Text style={styles.averageHitandWoundsText}> {averageHitsCalculation}</Text>
-              <Text style={styles.textTitles}>AVERAGE WOUNDS</Text>
-              <Text style={styles.averageHitandWoundsText}> {averageWoundsCalculation}</Text>
-            </View>
+            
 
-            <View style={styles.enemySavesInput}>
-              <Text style={styles.textTitlesStyling}>S</Text>
-              <TextInput style={styles.textInputStyling} 
-              placeholder='0'
-              keyboardType='numeric'
-              value={shownEnemySaveValue}
-               onChangeText={setShownEnemySaveValue}
-              >
-              </TextInput>
-              <Text style={styles.textTitlesStyling}>W</Text>
-              <TextInput style={styles.textInputStyling} 
-              placeholder='0'
-              keyboardType='numeric'
-              defaultValue={wardSaveValue}              
-              value={wardSaveValue}
-              onChangeText={setWardSaveValue}>                
-              </TextInput>
-            </View>
 
           
         </View>
-            <View style={styles.headingContainer}>
+
+
+        <View style={styles.headingContainer}>
 
             
             
@@ -275,11 +295,12 @@ function AvgDamage() {
               </TouchableOpacity>
           </View>
 
-        {/* <View style={styles.effectsContainer}>
-            
-          <CheckBoxGroup/>
-        
-        </View> */}
+          <View style={styles.averageHitandWounds}>
+              <Text style={styles.textTitles}>AVERAGE HITS</Text>
+              <Text style={styles.averageHitandWoundsText}> {averageHitsCalculation}</Text>
+              <Text style={styles.textTitles}>AVERAGE WOUNDS</Text>
+              <Text style={styles.averageHitandWoundsText}> {averageWoundsCalculation}</Text>
+            </View>
 
        
             
@@ -296,6 +317,27 @@ function AvgDamage() {
 
 const styles = StyleSheet.create({
 
+  userInputContainer: {
+    flex: 1,
+    
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+
+  },
+  inputValuesStyling: {
+    backgroundColor: "#c1121f",
+    borderRadius: 35,    
+    textAlign: "center",
+    color: "#fff8dc",
+    padding: 10,   
+    fontWeight: "bold",
+    width: 140,
+    fontSize: 20,
+    margin: 10
+    
+  },
+
   //container that has all content on this page
   mainContainer: {
       flex: 1,  
@@ -306,17 +348,36 @@ const styles = StyleSheet.create({
   //container that has the top half requiring user input
   inputContainer: {
     
-    flex: 1.5,  
+    flex: 2,  
+    flexDirection: "row",
+    
+    
+    
           
   },
 
   headingContainer: {
     flexDirection: "row",
     justifyContent: "space-evenly",
-    alignItems: "center",
+    alignItems: "center",    
+    flex: 0.5,
+   
     
-    margin: 5,
-    flex: 0.8
+  },
+  totalDamageCalculationContainer: {
+    
+    flex: 1,
+    borderColor: 'black',
+    borderRadius: 5,
+    borderWidth: 5,
+    margin: 2,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignItems: "center",
+    backgroundColor: "#c1121f",
+    marginBottom: 40
+    
+    
     
   },
   buttonContainerStyling: {
@@ -374,16 +435,17 @@ const styles = StyleSheet.create({
   },
   //positioning for hit and wound textinput
   hitAndWoundInput: {
-    flexDirection: "row",
-    justifyContent: 'space-evenly',
-    margin: 15,
-    padding: 10,    
+    flexDirection: "column",
+    
+    flex: 1
+    
+        
   },
   attacksAndRendInput : {
-    flexDirection: "row",
+    flex: 1,
+    flexDirection: "column",
     justifyContent: 'space-evenly',
-    margin: 15,
-    padding: 10,    
+    
     
   },
   averageHitandWounds: {
@@ -415,21 +477,7 @@ const styles = StyleSheet.create({
   
   
   
-  totalDamageCalculationContainer: {
-    
-    flex: 0.6,
-    borderColor: 'black',
-    borderRadius: 5,
-    borderWidth: 5,
-    margin: 2,
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    alignItems: "center",
-    backgroundColor: "#c1121f",
-    
-    
-    
-  },
+
   totalDamageCalculationFont: {
     
     fontSize: 25,

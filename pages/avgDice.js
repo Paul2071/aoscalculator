@@ -105,6 +105,8 @@ const styles = StyleSheet.create({
 mainContainer: {
   flex: 1,
 },
+
+//unsure what this does
 expandTextToFit: {
 alignSelf: "flex-start"
 },

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text, View, TextInput, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native'
-import { Frame1 } from '../assets/images/figma/toHitDice'
+
 
 function DiceRolling() {
   //user input what value to hit the dice needs
