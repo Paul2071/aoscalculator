@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Text, View, StyleSheet, TextInput, TouchableOpacity, Image, } from 'react-native'
 import CheckBoxGroup from './checkbox'
 

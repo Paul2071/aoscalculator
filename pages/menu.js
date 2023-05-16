@@ -1,10 +1,7 @@
 import React from 'react'
-import { Text, Button, View, TouchableOpacity, StyleSheet  } from 'react-native'
+import { Text, View, TouchableOpacity, StyleSheet  } from 'react-native'
 
-import HeaderHamburger from '../components/headerHamburger'
 
-//align left legend heading
-//margin left on key
 
 function Menu({navigation}) {
   return (

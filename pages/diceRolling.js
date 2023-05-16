@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, TextInput, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native'
+import { Text, View, TextInput, StyleSheet, TouchableOpacity, Image } from 'react-native'
 
 
 function DiceRolling() {
