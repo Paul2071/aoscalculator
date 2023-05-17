@@ -200,22 +200,7 @@ function DiceRolling() {
             </TextInput>
         </View>
  
- {/*view for total hit and wound values */}
-        <View style={styles.totalHitPositioning}>
 
-          <Text style={[styles.textBox, styles.textStyling] }>TOTAL HIT</Text>
-
-          <Text style={styles.totalHitWoundBox}>
-              {totalHit}
-          </Text>
-
-          <Text style={[styles.textBox, styles.textStyling] }>TOTAL WOUND</Text>
-
-          <Text style={styles.totalHitWoundBox}>
-              {totalWound}
-         </Text>
-
-        </View>
 
 {/*view for dice image and text */}
 
@@ -239,7 +224,7 @@ function DiceRolling() {
 
               
         </View>
-        <View style={styles.resetIconPositioning}>
+        <View>
 
               <TouchableOpacity
               onPress={()=> resetUserInput() }>
@@ -259,7 +244,7 @@ function DiceRolling() {
 
     <View style={styles.actualDiceRollsPositioning}>
 
-      <View style={{justifyContent: "flex-start"}}> 
+      <View > 
        <Text style={[styles.textBox, styles.textStyling]}>HIT ROLLS</Text>
        </View>
 
@@ -352,7 +337,19 @@ function DiceRolling() {
               <Text style={styles.calculatedHitWoundValues}>{diceRollWounds[6]}</Text>
 
               </View>
-        </View>     
+              
+        </View>   
+       
+         {/*view for total hit and wound values */}
+         <View style={styles.totalHitPositioning}>
+
+                   <Text style={[styles.textBox, styles.textStyling] }>TOTAL HIT</Text>
+                   <Text style={styles.totalHitWoundBox}>{totalHit}</Text>
+                   <Text style={[styles.textBox, styles.textStyling] }>TOTAL WOUND</Text>
+                   <Text style={styles.totalHitWoundBox}>{totalWound}</Text>
+
+           </View>
+          
     </View>
   )
 }
@@ -402,6 +399,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "#fff8dc",
     fontWeight: "bold",
+    alignSelf: "center",
   },
 
 //text inputs that user updates  
@@ -433,13 +431,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#669bbc",
     flexDirection: "row",
     justifyContent: 'space-evenly',    
-    margin: 10  
+    margin: 10  ,
+   
     },
 
   
   //positioning of the total hit and total wound titles 
   totalHitPositioning: {
-    
+    flex: 1,
     flexDirection: "row",
     justifyContent: 'space-evenly',
     borderRadius: 8,   
@@ -453,10 +452,8 @@ const styles = StyleSheet.create({
     
     flexDirection: "row",
     justifyContent: "space-evenly",
-    marginTop: 50,
-    
-    marginBottom: 50,
-    
+    marginTop: 30,      
+    marginBottom: 30,   
     
   },
   //reset icon styling
@@ -469,7 +466,7 @@ const styles = StyleSheet.create({
 
    //positioning of hit rolls and wound rolls 
   actualDiceRollsPositioning: {
-    backgroundColor: "#669bbc",
+    
     flexDirection: "row",
     justifyContent: 'space-evenly',
     backgroundColor: "#c1121f",
@@ -486,9 +483,10 @@ const styles = StyleSheet.create({
   //view containing d6 images and actual hit rolls
   totalDiceRollsPositioning: {
     backgroundColor: "#669bbc",
-    flex: 1,
+    
     flexDirection: "row",
-    justifyContent: "space-evenly"
+    justifyContent: "space-evenly",
+    
 
 
   },
@@ -514,11 +512,8 @@ const styles = StyleSheet.create({
     color: "#fff8dc",
     padding: 10,
     fontWeight: "bold",
-    fontSize: 15,
-    
-    
-    
-    
+    fontSize: 15,  
+     
   },
   hitRollsContainer: {
     flex: 1,    
@@ -534,7 +529,8 @@ const styles = StyleSheet.create({
 },
   woundRollsContainer2: {
     flex: 1,    
-    alignItems: "center"
+    alignItems: "center",
+   
 },
 
 
