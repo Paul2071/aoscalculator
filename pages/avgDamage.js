@@ -129,11 +129,8 @@ function AvgDamage() {
 
 
 
-      function wardSave (averageWoundsCalculation) {
-          console.log(woundsTotalAfterSaveAndWardSave)
-        //  console.log(enemySaveAndWounds + "warsave")
-        //  console.log(wardSaveValue)
-        //  console.log(averageWoundsCalculation)
+      function wardSave () {
+         
          if ( wardSaveValue === 0 ){
           console.log(" I CAN SEE")
           setWoundsTotalAfterSaveAndWardSave( enemySaveAndWounds     )

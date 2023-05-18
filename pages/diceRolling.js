@@ -210,7 +210,7 @@ function DiceRolling() {
 
               <TouchableOpacity
               onPress={()=> rollDiceUSerInputNumberOfTimes() }>
-                  <Text style={styles.buttonContainerStyling}> CALCULATE HITS</Text>
+                  <Text style={styles.buttonContainerStyling}> ROLL HITS</Text>
               </TouchableOpacity>
 
         </View>
@@ -219,7 +219,7 @@ function DiceRolling() {
 
               <TouchableOpacity
               onPress={()=> calculateWounds() }>
-                  <Text style={styles.buttonContainerStyling}> CALCULATE WOUNDS</Text>
+                  <Text style={styles.buttonContainerStyling}> ROLL WOUNDS</Text>
               </TouchableOpacity>
 
               
