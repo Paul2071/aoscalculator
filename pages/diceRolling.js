@@ -406,7 +406,10 @@ const styles = StyleSheet.create({
   userInputBox: {
   borderColor: 'black',
   borderWidth: 1,
-  borderRadius: 20,  
+  borderRadius: 5,  
+  backgroundColor: "lightgrey",
+  fontWeight: "bold",
+  
   width: 50,
   textAlign: "center", 
     

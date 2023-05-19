@@ -185,7 +185,7 @@ function AvgDamage() {
             <View style={styles.hitAndWoundInput} >
 
                <View  >
-                  <Text style={styles.inputValuesStyling}>Input values</Text>
+                  <Text style={styles.inputValuesStyling}>INPUT VALUES</Text>
                </View>  
                
                <View style={styles.userInputContainer}>
@@ -329,7 +329,7 @@ const styles = StyleSheet.create({
     color: "#fff8dc",
     padding: 10,   
     fontWeight: "bold",
-    width: 140,
+    width: 160,
     fontSize: 20,
     margin: 10
     
@@ -401,8 +401,11 @@ const styles = StyleSheet.create({
   textInputStyling: {
   borderColor: 'black',
   borderWidth: 1,
-  borderRadius: 20,  
-  width: 50,
+  borderRadius: 5,  
+  padding: 10,
+  backgroundColor: "lightgrey",
+  fontWeight: "bold",
+  width: 80,
   textAlign: "center",  
   
   },
