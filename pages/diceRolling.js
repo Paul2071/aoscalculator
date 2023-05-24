@@ -259,28 +259,28 @@ function DiceRolling() {
            <View style={styles.hitRollsContainer} >
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/images/dice1.png')}
+                        source={require('../assets/images/d6red1.png')}
                       ></Image>
                       
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/images/dice2.png')}
+                        source={require('../assets/images/d6red2.png')}
                       ></Image>
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/images/dice3.png')}
+                        source={require('../assets/images/d6red3.png')}
                       ></Image>
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/images/dice4.png')}
+                        source={require('../assets/images/d6red4.png')}
                       ></Image>
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/images/dice5.png')}
+                        source={require('../assets/images/d6red5.png')}
                       ></Image>
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/images/dice6.png')}
+                        source={require('../assets/images/d6red6.png')}
                       ></Image>     
               </View> 
 
@@ -302,39 +302,37 @@ function DiceRolling() {
            <View style={styles.woundRollsContainer}>
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/images/dice1.png')}
+                        source={require('../assets/images/d6red1.png')}
                       ></Image>
                       
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/images/dice2.png')}
+                        source={require('../assets/images/d6red2.png')}
                       ></Image>
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/images/dice3.png')}
+                        source={require('../assets/images/d6red3.png')}
                       ></Image>
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/images/dice4.png')}
+                        source={require('../assets/images/d6red4.png')}
                       ></Image>
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/images/dice5.png')}
+                        source={require('../assets/images/d6red5.png')}
                       ></Image>
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/images/dice6.png')}
+                        source={require('../assets/images/d6red6.png')}
                       ></Image>     
               </View> 
               <View style={styles.woundRollsContainer2}>
-              <Text style={styles.calculatedHitWoundValues}
-              >{diceRollWounds[1]}</Text>
-              <Text style={styles.calculatedHitWoundValues} >{diceRollWounds[2]}
-              </Text>
-              <Text style={styles.calculatedHitWoundValues}>{diceRollWounds[3]}</Text>
-              <Text style={styles.calculatedHitWoundValues}>{diceRollWounds[4]}</Text>
-              <Text style={styles.calculatedHitWoundValues}>{diceRollWounds[5]}</Text>
-              <Text style={styles.calculatedHitWoundValues}>{diceRollWounds[6]}</Text>
+                  <Text style={styles.calculatedHitWoundValues} >{diceRollWounds[1]}</Text>
+                  <Text style={styles.calculatedHitWoundValues} >{diceRollWounds[2]}</Text>
+                  <Text style={styles.calculatedHitWoundValues} >{diceRollWounds[3]}</Text>
+                  <Text style={styles.calculatedHitWoundValues} >{diceRollWounds[4]}</Text>
+                  <Text style={styles.calculatedHitWoundValues} >{diceRollWounds[5]}</Text>
+                  <Text style={styles.calculatedHitWoundValues} >{diceRollWounds[6]}</Text>
 
               </View>
               
@@ -463,7 +461,7 @@ const styles = StyleSheet.create({
   resetIconStyling: {
       height: 40,
       width: 40,
-      borderRadius: 8
+      borderRadius: 8,
       
   },
 
@@ -497,6 +495,9 @@ const styles = StyleSheet.create({
   resizingSingleDiceImages:{
     height: 40,
     width: 40,
+    borderRadius: 8,
+    borderWidth: 2,
+    borderColor: "black",
     margin: 5
   },
 

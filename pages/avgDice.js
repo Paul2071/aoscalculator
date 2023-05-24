@@ -49,28 +49,28 @@ let sixPlus = Math.round (howManyDice - averageOneNumber - averageOneNumber - av
                     <View>
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/images/dice1.png')}
+                        source={require('../assets/images/d6red1.png')}
                       ></Image>
                       
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/images/dice2.png')}
+                        source={require('../assets/images/d6red2.png')}
                       ></Image>
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/images/dice3.png')}
+                        source={require('../assets/images/d6red3.png')}
                       ></Image>
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/images/dice4.png')}
+                        source={require('../assets/images/d6red4.png')}
                       ></Image>
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/images/dice5.png')}
+                        source={require('../assets/images/d6red5.png')}
                       ></Image>
                       <Image 
                         style={styles.resizingSingleDiceImages}
-                        source={require('../assets/images/dice6.png')}
+                        source={require('../assets/images/d6red6.png')}
                       ></Image>   
                       </View>
 
@@ -88,8 +88,8 @@ let sixPlus = Math.round (howManyDice - averageOneNumber - averageOneNumber - av
                         <Text style={styles.diceAveragesOutput}>{onePlus}</Text>
                         <Text style={styles.diceAveragesOutput}>{twoPlus}</Text>
                         <Text style={styles.diceAveragesOutput}>{threePlus}</Text>
-                        <Text style={styles.diceAveragesOutput}>{fourPlus} </Text>
-                        <Text style={styles.diceAveragesOutput}>{fivePlus} </Text>
+                        <Text style={styles.diceAveragesOutput}>{fourPlus}</Text>
+                        <Text style={styles.diceAveragesOutput}>{fivePlus}</Text>
                         <Text style={styles.diceAveragesOutput}>{sixPlus}</Text>
                        
                       </View>
@@ -161,6 +161,9 @@ resizingSingleDiceImages: {
   height: 40,
   width:40,
   margin: 5,
+  borderRadius: 8,
+    borderWidth: 2,
+    borderColor: "black",
 },
 diceAndAveragesContainer: {
   backgroundColor: "#669bbc" ,
@@ -173,9 +176,10 @@ diceAveragesOutput: {
     width: 40,
     margin: 5,
     borderWidth: 1,
-    borderRadius: 20,
+    borderRadius: 15,
     padding: 10,
-    textAlign: "center"
+    textAlign: "center",
+    fontWeight: "bold"
 },
 
 })

@@ -68,7 +68,7 @@ function AvgDamage() {
   }
 
 
-   async function  calculateAverageWounds () {
+   function  calculateAverageWounds () {
       if (toWoundValue === "1"){
         
         setAverageWoundsCalculation(1 * averageHitsCalculation)  
