@@ -25,8 +25,9 @@ let sixPlus = Math.round (howManyDice - averageOneNumber - averageOneNumber - av
             <Text style={[styles.textBox, styles.textStylingTitle] }>HOW MANY DICE?</Text>
             <TextInput
             style={[styles.textInputBox, styles.textStylingText] }
-            value={howManyDice}
+            value={String(howManyDice)}
             onChangeText={setHowManyDice}
+             
             keyboardType='numeric'
             placeholder='0'>
 

@@ -91,6 +91,11 @@ function Menu({navigation}) {
               onPress={()=> navigation.navigate("DiceRolling")} >
                 <Text style={styles.buttonContainerStyling}>ATTACK DICE ROLLING</Text>
               </TouchableOpacity>
+              <TouchableOpacity 
+              title='DiceRolling'
+              onPress={()=> navigation.navigate("DiceRolling")} >
+                <Text style={styles.betaButtonStyling}>THIS APP IS IN BETA</Text>
+              </TouchableOpacity>
 
             
             </View>
@@ -127,6 +132,16 @@ const styles = StyleSheet.create ({
     borderRadius: 8,    
     textAlign: "center",
     color: "#fff8dc",
+    padding: 20,
+    fontWeight: "bold",
+    width: 180,
+    fontSize: 20,
+  },
+  betaButtonStyling: {
+    backgroundColor: "#fff8dc",
+    borderRadius: 38,    
+    textAlign: "center",
+    color: "#c1121f",
     padding: 20,
     fontWeight: "bold",
     width: 180,

@@ -194,7 +194,7 @@ function AvgDamage() {
                   style={styles.textInputStyling}  
                   placeholder='0'
                   keyboardType='numeric'
-                  value={toHitValue}
+                  value={String(toHitValue)}
                   onChangeText={setToHitValue}>
                   </TextInput>
               </View>
@@ -205,7 +205,7 @@ function AvgDamage() {
                   <TextInput style={styles.textInputStyling}  
                   placeholder='0'
                   keyboardType='numeric'
-                  value={toWoundValue}
+                  value={String(toWoundValue)}
                   onChangeText={setToWoundValue}>                
                   </TextInput>
                 </View>
@@ -216,7 +216,7 @@ function AvgDamage() {
                     <TextInput style={styles.textInputStyling}   
                     placeholder='0'
                     keyboardType='numeric'
-                    value={attacksValue}
+                    value={String(attacksValue)}
                     onChangeText={setAttacksValue}>
                     </TextInput>
                </View>
@@ -229,7 +229,7 @@ function AvgDamage() {
                 <TextInput style={styles.textInputStyling}   
                 placeholder='0'
                 keyboardType='numeric'
-                value={damageValue}
+                value={String(damageValue)}
                 onChangeText={setDamageValue}>
                 </TextInput>
             </View>
@@ -240,7 +240,7 @@ function AvgDamage() {
               <TextInput style={styles.textInputStyling}  
               placeholder='0'
               keyboardType='numeric'
-              value={rendValue}
+              value={String(rendValue)}
               onChangeText={setRendValue}>                
               </TextInput>
              </View>
@@ -250,7 +250,7 @@ function AvgDamage() {
                 <TextInput style={styles.textInputStyling} 
                 placeholder='0'
                 keyboardType='numeric'
-                value={shownEnemySaveValue}
+                value={String(shownEnemySaveValue)}
                 onChangeText={setShownEnemySaveValue}>
                 </TextInput>
               </View>
@@ -259,9 +259,8 @@ function AvgDamage() {
                 <Text style={styles.textTitlesStyling}>W</Text>
                 <TextInput style={styles.textInputStyling} 
                 placeholder='0'
-                keyboardType='numeric'
-                defaultValue={wardSaveValue}              
-                value={wardSaveValue}
+                keyboardType='numeric'                          
+                value={String(wardSaveValue)}
                 onChangeText={setWardSaveValue}>                
                 </TextInput>
               </View>
